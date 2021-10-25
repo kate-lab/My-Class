@@ -1,0 +1,64 @@
+import axios from 'axios'
+import React, { useState } from 'react'
+import { useHistory, Link } from 'react-router-dom'
+import { getPayload } from '../helpers/Auth'
+
+const Login = () => {
+
+  const history = useHistory()
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  })
+
+  const [errors, setErrors] = useState('')
+
+  const handleChange = (event) => {
+    const newObj = { ...formData, [event.target.name]: event.target.value }
+    setFormData(newObj)
+    setErrors('email or password incorrect')
+  }
+
+  const handleSubmit = async(event) => {
+    event.preventDefault()
+    const currentUserPk = getPayload.pk
+    try {
+      const { data } = await axios.post('/api/login', formData)
+      setTokenToLocalStorage(data.token)
+      history.push(`/classroom/${currentUserPk}`)
+    } catch (error) {
+      setErrors()
+      console.log(error)
+    }
+  }
+  const setTokenToLocalStorage = (token)=>{
+    window.localStorage.setItem('token',token)
+  }
+
+  return (
+    <section className='form-page'>
+
+      <h2>Log in</h2>
+
+      <form onSubmit={handleSubmit}>
+
+        <div className='form-field'>
+          <label htmlFor='email' className='form-label'>Email</label>
+          <input type='text' className='form-control' name='email' placeholder='name@email.com' value={FormData.email} onInput={handleChange} />
+        </div>
+        <div className='form-field'>
+          <label htmlFor='password' className='form-label'>Password</label>
+          <input type='text' className='form-control' name='password' placeholder='Password' value={FormData.password} onInput={handleChange} />
+        </div>
+        {errors && <p className="error">{errors}</p>}
+        <button className='submit btn btn-primary'>Log in</button>
+
+        <p>Don&apos;t have an account? <Link to='/register'>Register here</Link></p>
+      </form>
+
+    </section>
+  )
+}
+
+export default Login

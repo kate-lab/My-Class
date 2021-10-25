@@ -1,0 +1,51 @@
+[
+{
+  "model": "topics.topic",
+  "pk": 1,
+  "fields": {
+    "topic_name": "Maths"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 2,
+  "fields": {
+    "topic_name": "English"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 3,
+  "fields": {
+    "topic_name": "Science"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 4,
+  "fields": {
+    "topic_name": "Psychology"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 5,
+  "fields": {
+    "topic_name": "Mindfulness"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 6,
+  "fields": {
+    "topic_name": "Art"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 7,
+  "fields": {
+    "topic_name": "Architecture"
+  }
+}
+]

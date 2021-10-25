@@ -1,0 +1,25 @@
+[
+{
+  "model": "lessons.lesson",
+  "pk": 1,
+  "fields": {
+    "title": "Draw a 3D Room",
+    "introduction": "In this lesson, you will learn how to draw a 3D interior (room), using vanishing point perspective and your creativity.",
+    "section_one_title": "Making your wireframe",
+    "section_one_text": "The first step is to create the blank interior - use a pencil and ruler for this step!",
+    "section_one_picture": "https://res.cloudinary.com/dysirhng8/image/upload/v1634740708/classroom/Screenshot_2021-10-20_at_15.35.04_e0hczl.png",
+    "section_one_activity": "Intersect your page with a horizontal and vertical line, use these lines to draw vanishing points on the left and the right of the page. Create a diamond by joining these vanishing points with the top and bottom of the vertical line. Decide where you want your walls to end and draw a vertical line each side. connect the top and bottom of each wall with the vanishing point on the opposite side of the page. Now yo uhave an empty 3D room!",
+    "section_two_title": "Drawing the Room",
+    "section_two_text": "Now it's time to fill in the details! Use colouring pencils, pens and whatever you need to bring personality to the space.",
+    "section_two_picture": "https://res.cloudinary.com/dysirhng8/image/upload/v1634740708/classroom/Screenshot_2021-10-20_at_15.35.33_nl8nex.png",
+    "section_two_activity": "Add details, furniture and fittings into your blank room, making sure to line up your lines with the vanishing points to make the image seem completely 3D. Add colour to your drawing - what details from your own room would you like to include in your drawing?",
+    "summary": "In this lesson you have used simple lines on paper to create an interior looks 3D! What other places could you draw in this way? Could you draw the exterior of a building using a similar technique? What would you have to change?",
+    "owner": 1,
+    "topics": [
+      5,
+      6,
+      7
+    ]
+  }
+}
+]
