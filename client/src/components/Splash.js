@@ -21,12 +21,12 @@ const Splash = () => {
           <>
             <div className="splash">
               <h1>My class</h1>
-              <Link to="/login">
+              <Link to="/login/">
                 <div className="login-button button">
                   Log in
                 </div>
               </Link>
-              <Link to="/register">
+              <Link to="/register/">
                 <div className="login-button button">
                   <span className="small-text">New here?</span>
                   Register

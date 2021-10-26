@@ -51,7 +51,7 @@ const Classroom = () => {
       <div className="class-section">
         <div className="teacher-picture"></div>
         <div className="class-info">
-          <div>Welcome to {user.name}&apos;s class</div>
+          <div>Welcome to {user.display_name}&apos;s class</div>
           <div className="class-actions-section">
             <div>search</div>
             <div>filter by topic</div>

@@ -45,7 +45,7 @@ const Register = () => {
     event.preventDefault()
     console.log(formData)
     try {
-      await axios.post('/api/register', formData)
+      await axios.post('/api/auth/register/', formData)
       history.push('/login')
     } catch (err){
       //error message set

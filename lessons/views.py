@@ -35,12 +35,13 @@ class LessonListView(APIView):
 
 # SINGLE LESSON from pk (primary key)
 class LessonDetailView(APIView):
+    
     permission_classes = (IsAuthenticatedOrReadOnly, )
     def get_lesson(self, pk):
         try:
             return Lesson.objects.get(pk=pk)
         except Lesson.DoesNotExist:
-            raise NotFound(detail="🆘 Can't find that lesson!")
+            raise NotFound(detail="Can't find that lesson!")
 
     # GET single lesson
     def get(self, _request, pk):

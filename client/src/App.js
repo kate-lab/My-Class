@@ -37,6 +37,9 @@ function App() {
           <Route path='/lessoneditor'>
             <LessonEditor />
           </Route>
+          <Route path='/myclassroom'>
+            <LessonEditor />
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>

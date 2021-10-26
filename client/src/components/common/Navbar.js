@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
-import { userIsAuthenticated } from '../helpers/Auth.js'
+import { userIsAuthenticated, getPayload } from '../helpers/Auth.js'
 
 const Navbar = () => {
 
@@ -9,6 +9,10 @@ const Navbar = () => {
 
   useEffect(() => {
   }, [location.pathname])
+
+  const { sub } = getPayload()
+
+  console.log(sub)
 
   const handleLogout = () => {
     window.localStorage.removeItem('token')
@@ -23,7 +27,7 @@ const Navbar = () => {
           // if isAuthenticated is true:
           <>
             <li className='navbar'>
-              <Link to='/classroom/:id'>My Class</Link>
+              <Link to={'/myclassroom/'}>My Class</Link>
               <div>
                 <Link to='/lessoneditor'>Add New Lesson</Link>
                 <span className='logout-link' onClick={handleLogout}>Logout</span>

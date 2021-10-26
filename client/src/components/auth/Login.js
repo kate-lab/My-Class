@@ -22,10 +22,13 @@ const Login = () => {
 
   const handleSubmit = async(event) => {
     event.preventDefault()
-    const currentUserPk = getPayload.pk
+
     try {
-      const { data } = await axios.post('/api/login', formData)
+      const { data } = await axios.post('/api/auth/login/', formData)
+      console.log(formData)
       setTokenToLocalStorage(data.token)
+      const currentUserPk = getPayload(event)._id
+      console.log('current user pk ->', currentUserPk)
       history.push(`/classroom/${currentUserPk}`)
     } catch (error) {
       setErrors()

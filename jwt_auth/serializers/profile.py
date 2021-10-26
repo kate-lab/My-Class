@@ -3,9 +3,11 @@ from django.contrib.auth import get_user_model, password_validation
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
 
+from lessons.serializers.noowner import PopulatedLessonSerializerNoOwner
+
 User = get_user_model()
 
-class UserSerializer(serializers.ModelSerializer):
+class ProfileSerializer(serializers.ModelSerializer):
 
     password = serializers.CharField(write_only=True)
     password_confirmation = serializers.CharField(write_only=True)
@@ -28,4 +30,7 @@ class UserSerializer(serializers.ModelSerializer):
         
     class Meta:
         model = User
-        fields = ('id', 'username', 'display_name', 'profile_image', 'email', 'password', 'password_confirmation', 'lessons')
+        fields = ('id', 'display_name', 'profile_image', 'email', 'lessons')
+
+class PopulatedProfileSerializer(ProfileSerializer):
+    lessons = PopulatedLessonSerializerNoOwner(many=True)
