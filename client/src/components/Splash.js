@@ -19,7 +19,7 @@ const Splash = () => {
 
           //isAuthenticated is false:
           <>
-            <div className="splash site-wrapper">
+            <div className="splash site-wrapper grid">
               <h1>my class</h1>
               <div className="splash-button-container">
                 <Link to="/login/"  className="splash-button login-button button">
@@ -29,7 +29,7 @@ const Splash = () => {
                 </Link>
                 <Link to="/register/"  className="splash-button register-button button">
                   <div>
-                    <span className="small-text">New here?</span>
+                    <span className="small-text">new here?</span><br/>
                     Register
                   </div>
                 </Link>

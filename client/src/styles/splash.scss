@@ -5,18 +5,20 @@
   align-items: center;
   .splash-button-container{
     display: flex;
+    
     .splash-button{
-      width: 200px;
-      height: 130px;
+      width: 250px;
+      height: 100px;
       .small-text{
-        font-size: 20px;
+        font-size: 18px;
       }
     }
     .login-button{
-      background-color: #B57BFF;
+      background-color: #66A5EF;
+      padding: 15px 0;
     }
     .register-button{
-      background-color: #FF984E;
+      background-color: #B57BFF;
       padding-top: 0;
       padding-bottom: 30px;
     }
@@ -24,7 +26,22 @@
 
 }
 @media screen and (max-width: 630px) {
+
   .splash-button-container{
     flex-direction: column;
+    .splash-button{
+      font-size: 28px;
+      margin: 10px;
+      .small-text{
+        font-size: smaller;
+      }
+    }
+    .login-button{
+      padding: 5px 0;
+    }
+    .register-button{
+      padding-bottom: 10px;
+    }
   }
+
 }

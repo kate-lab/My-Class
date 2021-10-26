@@ -11,6 +11,7 @@ body{
   a{
     text-decoration: none;
     font-weight: bold;
+    color: black;
   }
   h1, h2{
     font-family: 'Marmelad', serif;
@@ -30,8 +31,8 @@ body{
   text-align: center;
   font-size: 36px;
   margin: 20px;
-  padding: 15px 20px;
   box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.6);
+  border: none;
   color: white;
 }
 .button:hover{
@@ -43,3 +44,14 @@ body{
   transform: translateY(7px);
 }
 
+.grid{
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgb(210, 210, 210) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(210, 210, 210) 1px, transparent 1px);
+}
+
+.auth-title{
+  padding: 15px 25px;
+  color: white;
+}

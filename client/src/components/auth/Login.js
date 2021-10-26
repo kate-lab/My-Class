@@ -37,25 +37,27 @@ const Login = () => {
   }
 
   return (
-    <section className='form-page'>
+    <section className='form-page grid'>
 
-      <h2>Log in</h2>
+      <h2 className="auth-title login-title">Log in</h2>
 
-      <form onSubmit={handleSubmit}>
-
-        <div className='form-field'>
-          <label htmlFor='email' className='form-label'>Email</label>
-          <input type='text' className='form-control' name='email' placeholder='name@email.com' value={FormData.email} onInput={handleChange} />
-        </div>
-        <div className='form-field'>
-          <label htmlFor='password' className='form-label'>Password</label>
-          <input type='password' className='form-control' name='password' placeholder='Password' value={FormData.password} onInput={handleChange} />
-        </div>
-        {errors && <p className="error">{errors}</p>}
-        <button className='submit btn btn-primary'>Log in</button>
-
-        <p>Don&apos;t have an account? <Link to='/register'>Register here</Link></p>
-      </form>
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+  
+          <div className='form-field'>
+            <label htmlFor='email' className='form-label'>Email</label>
+            <input type='text' className='form-control' name='email' placeholder='name@email.com' value={FormData.email} onInput={handleChange} />
+          </div>
+          <div className='form-field'>
+            <label htmlFor='password' className='form-label'>Password</label>
+            <input type='password' className='form-control' name='password' placeholder='Password' value={FormData.password} onInput={handleChange} />
+          </div>
+          {errors && <p className="error">{errors}</p>}
+          <button className='button form-button'>Log in</button>
+  
+          <p>Don&apos;t have an account? <Link to='/register'>Register here</Link></p>
+        </form>
+      </div>
 
     </section>
   )

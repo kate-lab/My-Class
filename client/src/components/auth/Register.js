@@ -60,45 +60,47 @@ const Register = () => {
 
   return (
     
-    <section className='form-page'>
-
-      <h2>Create New Teacher Account</h2>
-
-      <form onSubmit={handleSubmit}>
-
-        <div className='form-field'>
-          <label htmlFor='username' className='form-label'>Username</label>
-          <input type='text' className='form-control' name='username' placeholder='Username' value ={FormData.username} onInput={handleChange}/>
-          {/* {errors.username && <p className="error">{errors.username}</p>} */}
-        </div>
-        <div className='form-field'>
-          <label htmlFor='display_name' className='form-label'>Display Name</label>
-          <input type='text' className='form-control' name='display_name' placeholder='Display Name' value ={FormData.display_name} onInput={handleChange}/>
-          {/* {errors.display_name && <p className="error">{errors.display_name}</p>} */}
-        </div>
-        <div className='form-field'>
-          <label htmlFor='email' className='form-label'>Email</label>
-          <input type='email' className='form-control' name='email' placeholder='name@email.com' value ={FormData.email} onInput={handleChange}/>
-          {/* {errors.email && <p className="error">{errors.email}</p>} */}
-        </div>
-        <div className='form-field'>
-          <label htmlFor='image' className='form-label'>Add an image</label>
-          <input type='file' name='profile_image' className='input' onChange={handleImageChange} />
-        </div>
-        <div className='form-field'>
-          <label htmlFor='password' className='form-label'>Password</label>
-          <input type='password' className='form-control' name='password' placeholder='Password' value ={FormData.password} onInput={handleChange}/>
-          {/* {errors.password && <p className="error">{errors.password}</p>} */}
-        </div>
-        <div className='form-field'>
-          <label htmlFor='password_confirmation' className='form-label'>Confirm Password</label>
-          <input type='password' className='form-control' name='password_confirmation' placeholder='Password again' value ={FormData.password_confirmation} onInput={handleChange}/>
-          {/* {errors.password_confirmation && <p className="error">{errors.password_confirmation}</p>} */}
-        </div>
-        <button className='submit btn btn-primary'>Register</button>
-        <p>Already registered? <Link to='/login'>Login</Link></p>
+    <section className='form-page grid'>
+      <h2 className="auth-title register-title">Create New Teacher Account</h2>
   
-      </form>
+      <div className="form-container">
+      
+        <form onSubmit={handleSubmit} className="form">
+  
+          <div className='form-field'>
+            {/* <label htmlFor='username' className='form-label'>Username</label> */}
+            <input type='text' className='form-control' name='username' placeholder='Username' value ={FormData.username} onInput={handleChange}/>
+            {/* {errors.username && <p className="error">{errors.username}</p>} */}
+          </div>
+          <div className='form-field'>
+            {/* <label htmlFor='display_name' className='form-label'>Display Name</label> */}
+            <input type='text' className='form-control' name='display_name' placeholder='Display Name' value ={FormData.display_name} onInput={handleChange}/>
+            {/* {errors.display_name && <p className="error">{errors.display_name}</p>} */}
+          </div>
+          <div className='form-field'>
+            {/* <label htmlFor='email' className='form-label'>Email</label> */}
+            <input type='email' className='form-control' name='email' placeholder='name@email.com' value ={FormData.email} onInput={handleChange}/>
+            {/* {errors.email && <p className="error">{errors.email}</p>} */}
+          </div>
+          <div className='image-field'>
+            <label htmlFor='image' className='form-label custom-file-upload'>Add a picture<input type='file' name='profile_image' className='input' onChange={handleImageChange} /></label>
+            
+          </div>
+          <div className='form-field'>
+            {/* <label htmlFor='password' className='form-label'>Password</label> */}
+            <input type='password' className='form-control' name='password' placeholder='Password' value ={FormData.password} onInput={handleChange}/>
+            {/* {errors.password && <p className="error">{errors.password}</p>} */}
+          </div>
+          <div className='form-field'>
+            {/* <label htmlFor='password_confirmation' className='form-label'>Confirm Password</label> */}
+            <input type='password' className='form-control' name='password_confirmation' placeholder='Password again' value ={FormData.password_confirmation} onInput={handleChange}/>
+            {/* {errors.password_confirmation && <p className="error">{errors.password_confirmation}</p>} */}
+          </div>
+          <button className='button form-button'>Register</button>
+          <p>Already registered? <Link to='/login'>Login</Link></p>
+    
+        </form>
+      </div>
     </section> 
   )
 

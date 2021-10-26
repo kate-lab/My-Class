@@ -1,0 +1,74 @@
+.form-page{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .register-title{
+    background-color: #B57BFF;
+  }
+  .login-title{
+    background-color: #66A5EF;
+  }
+  .form-container{
+    display:flex;
+    flex-direction: column;
+    font-size: 18px;
+    background: #fff080;
+    padding: 40px 30px 30px 30px;
+  
+  }
+  .form-field{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    input{
+      font-size: 18px;
+      padding: 15px;
+      margin-bottom: 10px;
+      border: none;
+    }
+  }
+  .image-field{
+    display: flex;
+    padding: 5px 10px;
+    margin-bottom: 12px;
+    input.input{
+      margin: 0 20px;
+      .custom-file-upload{
+        padding: 8px;
+        color: white;
+      }
+    }
+  }
+  .form-button{
+    background-color: #59B057;
+    padding: 10px 20px;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .auth-title{
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-size: 30px;
+    width: 100vw;
+  }
+  .form-container{
+    width: 290px;
+  }
+  .form-button{
+    font-size: 30px;
+    margin-top: 10px;
+  }
+  .form-field{
+    input{
+      .form-control{
+        font-size: 14px;
+        padding: 10px;
+      }
+
+    }
+  }
+
+}
