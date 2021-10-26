@@ -30,7 +30,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         
     class Meta:
         model = User
-        fields = ('id', 'display_name', 'profile_image', 'email', 'lessons')
+        fields = ('id', 'username', 'display_name', 'profile_image', 'email', 'password', 'password_confirmation', 'lessons')
 
 class PopulatedProfileSerializer(ProfileSerializer):
     lessons = PopulatedLessonSerializerNoOwner(many=True)

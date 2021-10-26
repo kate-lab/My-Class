@@ -128,7 +128,7 @@ const LessonEditor = () => {
                 <input type='text' className='form-control' name='section_one_activity' placeholder='Add a short activity to consolidate learning from this section' value={FormData.section_one_title} onInput={handleChange} />
               </div>
               <div>
-                <input type='text' className='form-control' name='section_two_title' placeholder='Section 1 Title' value={FormData.section_two_title} onInput={handleChange} />
+                <input type='text' className='form-control' name='section_two_title' placeholder='Section 2 Title' value={FormData.section_two_title} onInput={handleChange} />
                 <input type='text' className='form-control' name='section_two_title' placeholder='Write your teacher explanation here' value={FormData.section_two_text} onInput={handleChange} />
                 <label htmlFor='section_two_picture' className='form-label'>Add an image</label>
                 <input type='file' name='section_two_picture' className='input' onChange={handleImageTwoChange} />
@@ -148,7 +148,7 @@ const LessonEditor = () => {
                 onCreateOption={(created) => handleCreatedTopic('topics', created)}
               />
             </div>
-
+            <button className="add-lesson-button">Add/Edit Lesson</button>
 
           </form>
         </>

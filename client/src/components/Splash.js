@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Classroom from './classroom/Classroom.js'
+import MyClassroom from './classroom/MyClassroom.js'
 import { userIsAuthenticated } from './helpers/Auth.js'
 
 const Splash = () => {
@@ -12,7 +12,7 @@ const Splash = () => {
 
           // if isAuthenticated is true:
           <>
-            <Classroom />
+            <MyClassroom />
           </>
 
           :

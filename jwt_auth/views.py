@@ -75,15 +75,15 @@ class SingleUserView(APIView):
     # GET SINGLE USER BY PK!
     def get(self, request, pk):
         this_user = self.get_user(pk=pk)
-        serialized_user = PopulatedProfileSerializer(this_user)
+        serialized_user = PopulatedUserSerializer(this_user)
         print(serialized_user.data)
         return Response(serialized_user.data, status=status.HTTP_200_OK)
 
-# GET CURRENT USER AND THEIR LESSONS
+# GET CURRENT USER PROFILE AND THEIR LESSONS
 class CurrentUserView(APIView):
     permission_classes = (IsAuthenticated, )
     def get(self, request):
-        serialized_user = PopulatedUserSerializer(request.user)
+        serialized_user = PopulatedProfileSerializer(request.user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)
     
 

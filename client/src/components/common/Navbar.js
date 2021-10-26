@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
-import { userIsAuthenticated, getPayload } from '../helpers/Auth.js'
+import { userIsAuthenticated } from '../helpers/Auth.js'
 
 const Navbar = () => {
 
@@ -10,9 +10,6 @@ const Navbar = () => {
   useEffect(() => {
   }, [location.pathname])
 
-  const { sub } = getPayload()
-
-  console.log(sub)
 
   const handleLogout = () => {
     window.localStorage.removeItem('token')

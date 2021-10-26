@@ -5,6 +5,7 @@ import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 
 import Classroom from './components/classroom/Classroom'
+import MyClassroom from './components/classroom/Classroom'
 import LessonShow from './components/classroom/LessonShow'
 
 import LessonEditor from './components/lesson/LessonEditor'
@@ -38,7 +39,7 @@ function App() {
             <LessonEditor />
           </Route>
           <Route path='/myclassroom'>
-            <LessonEditor />
+            <MyClassroom />
           </Route>
         </Switch>
       </BrowserRouter>
