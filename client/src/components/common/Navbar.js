@@ -24,7 +24,7 @@ const Navbar = () => {
           // if isAuthenticated is true:
           <>
             <li className='navbar'>
-              <Link to={'/myclassroom/'}>My Class</Link>
+              <Link to={'/myclassroom'}>My Class</Link>
               <div>
                 <Link to='/lessoneditor'>Add New Lesson</Link>
                 <span className='logout-link' onClick={handleLogout}>Logout</span>

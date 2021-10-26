@@ -19,19 +19,21 @@ const Splash = () => {
 
           //isAuthenticated is false:
           <>
-            <div className="splash">
-              <h1>My class</h1>
-              <Link to="/login/">
-                <div className="login-button button">
-                  Log in
-                </div>
-              </Link>
-              <Link to="/register/">
-                <div className="login-button button">
-                  <span className="small-text">New here?</span>
-                  Register
-                </div>
-              </Link>
+            <div className="splash site-wrapper">
+              <h1>my class</h1>
+              <div className="splash-button-container">
+                <Link to="/login/"  className="splash-button login-button button">
+                  <div>
+                    Log in
+                  </div>
+                </Link>
+                <Link to="/register/"  className="splash-button register-button button">
+                  <div>
+                    <span className="small-text">New here?</span>
+                    Register
+                  </div>
+                </Link>
+              </div>
             </div>
           </>
       }

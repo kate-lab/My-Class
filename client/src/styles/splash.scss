@@ -1,0 +1,30 @@
+.splash{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .splash-button-container{
+    display: flex;
+    .splash-button{
+      width: 200px;
+      height: 130px;
+      .small-text{
+        font-size: 20px;
+      }
+    }
+    .login-button{
+      background-color: #B57BFF;
+    }
+    .register-button{
+      background-color: #FF984E;
+      padding-top: 0;
+      padding-bottom: 30px;
+    }
+  }
+
+}
+@media screen and (max-width: 630px) {
+  .splash-button-container{
+    flex-direction: column;
+  }
+}

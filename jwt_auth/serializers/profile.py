@@ -33,4 +33,4 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'display_name', 'profile_image', 'email', 'password', 'password_confirmation', 'lessons')
 
 class PopulatedProfileSerializer(ProfileSerializer):
-    lessons = PopulatedLessonSerializerNoOwner(many=True)
+    lessons = PopulatedLessonSerializerNoOwner(many=True, required=False, allow_null=True)

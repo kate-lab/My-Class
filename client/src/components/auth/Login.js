@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
-import { getPayload } from '../helpers/Auth'
 
 const Login = () => {
 
@@ -24,12 +23,10 @@ const Login = () => {
     event.preventDefault()
 
     try {
-      const { data } = await axios.post('/api/auth/login/', formData)
       console.log(formData)
+      const { data } = await axios.post('/api/auth/login/', formData)  
       setTokenToLocalStorage(data.token)
-      const currentUserPk = getPayload(event)._id
-      console.log('current user pk ->', currentUserPk)
-      history.push(`/classroom/${currentUserPk}`)
+      history.push('/myclassroom')
     } catch (error) {
       setErrors()
       console.log(error)
@@ -52,7 +49,7 @@ const Login = () => {
         </div>
         <div className='form-field'>
           <label htmlFor='password' className='form-label'>Password</label>
-          <input type='text' className='form-control' name='password' placeholder='Password' value={FormData.password} onInput={handleChange} />
+          <input type='password' className='form-control' name='password' placeholder='Password' value={FormData.password} onInput={handleChange} />
         </div>
         {errors && <p className="error">{errors}</p>}
         <button className='submit btn btn-primary'>Log in</button>

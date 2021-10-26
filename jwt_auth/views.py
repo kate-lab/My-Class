@@ -12,12 +12,9 @@ from django.conf import settings
 
 import jwt
 
-from .serializers.common import UserSerializer
+# from .serializers.common import UserSerializer
 from .serializers.populated import PopulatedUserSerializer
-from .serializers.profile import PopulatedProfileSerializer
-from lessons.serializers.populated import PopulatedLessonSerializer
-
-from lessons.models import Lesson
+from .serializers.profile import PopulatedProfileSerializer, ProfileSerializer
 
 User = get_user_model()
 
@@ -29,7 +26,7 @@ User = get_user_model()
 class RegisterView(APIView):
     def post(self, request):
         print(request.data)
-        user_to_create = UserSerializer(data=request.data)
+        user_to_create = ProfileSerializer(data=request.data)
         if user_to_create.is_valid():
             user_to_create.save()
             return Response({'message': 'Registration Successful'}, status=status.HTTP_202_ACCEPTED)
