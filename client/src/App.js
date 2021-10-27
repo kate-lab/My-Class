@@ -5,7 +5,6 @@ import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 
 import Classroom from './components/classroom/Classroom'
-import MyClassroom from './components/classroom/Classroom'
 import LessonShow from './components/classroom/LessonShow'
 
 import LessonEditor from './components/lesson/LessonEditor'
@@ -32,14 +31,11 @@ function App() {
           <Route path='/classroom/:id'>
             <Classroom />
           </Route>
-          <Route path='/lesson/:id'>
+          <Route path='/lessons/:id'>
             <LessonShow />
           </Route>
           <Route path='/lessoneditor'>
             <LessonEditor />
-          </Route>
-          <Route path='/myclassroom'>
-            <MyClassroom />
           </Route>
         </Switch>
       </BrowserRouter>

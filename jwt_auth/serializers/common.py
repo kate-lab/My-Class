@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model, password_validation
 
 User = get_user_model()
 
+# this is the generic user view serializer that doesn't pass back any important info like password etc
 class UserSerializer(serializers.ModelSerializer):
         
     class Meta:

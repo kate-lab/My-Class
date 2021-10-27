@@ -6,7 +6,6 @@ import LessonCard from './LessonCard'
 const MyClassroom = () => {
 
   const [ profile, setProfile ] = useState(null)
-
   const [ hasError, setHasError ] = useState(false)
   
   useEffect(() => {
@@ -14,6 +13,7 @@ const MyClassroom = () => {
       try {
         const { data } = await axios('/api/auth/myclassroom')
         setProfile(data)
+        console.log(data)
       } catch (err) {
         setHasError(true)
       }

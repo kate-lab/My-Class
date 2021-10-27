@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import Select from 'react-select'
+import { getPayload } from '../helpers/Auth.js'
 
 import LessonCard from './LessonCard'
 
 const Classroom = () => {
 
-  const [ user, setUser ] = useState(null)
-  const [ topics , setTopics ] = useState([])
-  const [ filteredLessons, setFilteredLessons ] = useState([])
-  const [ hasError, setHasError ] = useState(false)
+  const [user, setUser] = useState(null)
+  const [topics, setTopics] = useState([])
+  const [filteredLessons, setFilteredLessons] = useState([])
+  const [hasError, setHasError] = useState(false)
 
   const { id } = useParams()
 
@@ -49,17 +50,22 @@ const Classroom = () => {
     // console.log('selected ->', selected)
     const values = selected ? selected.map(topic => topic.value) : []
     const filtered = lessons.filter(lesson => {
-  
+
       return lesson.topics.some(topic => {
         // console.log(topic.topic_name)
         return values.includes(topic.topic_name)
-      
+
       })
     })
     console.log('filtered ->', filtered)
     values.length > 0 ? setFilteredLessons(filtered) : setFilteredLessons([])
   }
 
+  const userIsClassroom = (classroomId) => {
+    const payload = getPayload()
+    if (!payload) return
+    return classroomId === payload.sub
+  }
 
   return (
     <>
@@ -84,6 +90,11 @@ const Classroom = () => {
                   />
                 </div>
               </div>
+              { userIsClassroom(user._id) ?
+                <Link to={'/lessoneditor'} className="button-custom">Add a lesson to your class</Link>
+                :
+                <></>
+              }
             </div>
           </div >
           <div className="lesson-container container">

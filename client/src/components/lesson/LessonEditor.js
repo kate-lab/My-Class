@@ -112,45 +112,47 @@ const LessonEditor = () => {
       {userIsAuthenticated() ?
         // if isAuthenticated is true:
         <>
-          <h2>Add a Lesson</h2>
-
-          <form onSubmit={handleSubmit}>
-            <div className="top-lesson-add-div">
-              <input type='text' className='form-control' name='title' placeholder='Lesson Title' value={FormData.title} onInput={handleChange} />
-              <input type='text' className='form-control' name='introduction' placeholder='Introduce your lesson here - what will students expect to be able to do/explain by the end of the lesson?' value={FormData.introduction} onInput={handleChange} />
-            </div>
-            <div className="bottom-lesson-add-div">
-              <div>
-                <input type='text' className='form-control' name='section_one_title' placeholder='Section 1 Title' value={FormData.section_one_title} onInput={handleChange} />
-                <input type='text' className='form-control' name='section_one_title' placeholder='Write your teacher explanation here' value={FormData.section_one_text} onInput={handleChange} />
-                <label htmlFor='section_one_picture' className='form-label'>Add an image</label>
-                <input type='file' name='section_one_picture' className='input' onChange={handleImageOneChange} />
-                <input type='text' className='form-control' name='section_one_activity' placeholder='Add a short activity to consolidate learning from this section' value={FormData.section_one_title} onInput={handleChange} />
+          <div className="container lesson-editor form-page">
+            <h2>Add a Lesson</h2>
+  
+            <form onSubmit={handleSubmit}>
+              <div className="top-lesson-add-div">
+                <input type="text" className="form-control" name="title" placeholder="Lesson Title" value={FormData.title} onInput={handleChange} />
+                <input type="text" className="form-control textarea" name="introduction" placeholder="Introduce your lesson here - what will students expect to be able to do/explain by the end of the lesson?" value={FormData.introduction} onInput={handleChange} maxLength="500"/>
               </div>
-              <div>
-                <input type='text' className='form-control' name='section_two_title' placeholder='Section 2 Title' value={FormData.section_two_title} onInput={handleChange} />
-                <input type='text' className='form-control' name='section_two_title' placeholder='Write your teacher explanation here' value={FormData.section_two_text} onInput={handleChange} />
-                <label htmlFor='section_two_picture' className='form-label'>Add an image</label>
-                <input type='file' name='section_two_picture' className='input' onChange={handleImageTwoChange} />
-                <input type='text' className='form-control' name='section_two_activity' placeholder='Add a longer activity that uses skills/knowledge developed in sections 1 and 2' value={FormData.section_two_title} onInput={handleChange} />
+              <div className="bottom-lesson-add-div">
+                <div >
+                  <input type="text" className="form-control" name="section_one_title" placeholder="Section 1 Title" value={FormData.section_one_title} onInput={handleChange} maxLength="100"/>
+                  <input type="text" className="form-control textarea" name="section_one_text" placeholder="Write your teacher explanation here" value={FormData.section_one_text} onInput={handleChange} maxLength="1000"/>
+                  <label htmlFor="section_one_picture" className="form-label">Add an image</label>
+                  <input type="file" name="section_one_picture" className="input" onChange={handleImageOneChange} />
+                  <input type="text" className="form-control textarea" name="section_one_activity" placeholder="Add a short activity to consolidate learning from this section" value={FormData.section_one_activity} onInput={handleChange} maxLength="500"/>
+                </div>
+                <div>
+                  <input type="text" className="form-control" name="section_two_title" placeholder="Section 2 Title" value={FormData.section_two_title} onInput={handleChange} maxLength="100"/>
+                  <input type="text" className="form-control textarea" name="section_two_text" placeholder="Write your teacher explanation here" value={FormData.section_two_text} onInput={handleChange} maxLength="1000"/>
+                  <label htmlFor="section_two_picture" className="form-label">Add an image</label>
+                  <input type="file" name="section_two_picture" className="input" onChange={handleImageTwoChange} />
+                  <input type="textArea" className="form-control textarea" name="section_two_activity" placeholder="Add a longer activity that uses skills/knowledge developed in sections 1 and 2" value={FormData.section_two_activity} onInput={handleChange} maxLength="500"/>
+                </div>
               </div>
-            </div>
-            <div className="bottom-lesson-add-div">
-              <input type='text' className='form-control' name='summary' placeholder='Summarise your lesson here. What are the key take aways from this lesson? What can students go on to do next if they want to expand on what was learned?' value={FormData.summary} onInput={handleChange} />
-              <label htmlFor='topic' className='form-label'>Topics this lesson covers:</label>
-              <Creatable
-                options={topicOptions}
-                name='topics'
-                isMulti
-                isClearable
-                placeholder='Select topics or add a new topic'
-                onChange={(selected) => handleMultiSelected(selected)}
-                onCreateOption={(created) => handleCreatedTopic('topics', created)}
-              />
-            </div>
-            <button className="add-lesson-button">Add/Edit Lesson</button>
-
-          </form>
+              <div className="final-lesson-add-div">
+                <input type="text" className="form-control textarea" name="summary" placeholder="Summarise your lesson here. What are the key take aways from this lesson? What can students go on to do next if they want to expand on what was learned?" value={FormData.summary} onInput={handleChange} maxLength="500"/>
+                <label htmlFor="topic" className="form-label">Topics this lesson covers:</label>
+                <Creatable
+                  options={topicOptions}
+                  name="topics"
+                  isMulti
+                  isClearable
+                  placeholder="Select topics or add a new topic"
+                  onChange={(selected) => handleMultiSelected(selected)}
+                  onCreateOption={(created) => handleCreatedTopic('topics', created)}
+                />
+              </div>
+              <button className="add-lesson-button button-custom blue-background">Add/Edit Lesson</button>
+  
+            </form>
+          </div>
         </>
         :
         // if isAuthenticated is false:

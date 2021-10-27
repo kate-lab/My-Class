@@ -1,0 +1,14 @@
+.form-page{
+  display: flex;
+  flex-direction: column;
+
+}
+.bottom-lesson-add-div{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  div{
+    padding: 5px;
+    margin: 5px;
+  }
+}

@@ -2,13 +2,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const LessonCard = ({ _id, title, topics, section_two_picture }) => {
-
+const LessonCard = ({ id, title, topics, section_two_picture }) => {
+  console.log(id)
   return (
 
     <div className="lesson col-12 col-lg-6">
-      <Link to={`/lessons/${_id}`}>
-        <div className="card h-100 purple-background">
+      <Link to={`/lessons/${id}`}>
+        <div className="card h-100 purple-background lesson-card">
           <div className="card-header rounded-0">
             <h3>{title}</h3>
           </div>

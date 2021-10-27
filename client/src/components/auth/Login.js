@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 
+import { getPayload } from '../helpers/Auth.js'
+
 const Login = () => {
 
   const history = useHistory()
@@ -26,7 +28,9 @@ const Login = () => {
       console.log(formData)
       const { data } = await axios.post('/api/auth/login/', formData)  
       setTokenToLocalStorage(data.token)
-      history.push('/auth/myclassroom')
+      const payload = getPayload()
+      const id = payload.sub
+      history.push(`/classroom/${id}`)
     } catch (error) {
       setErrors()
       console.log(error)

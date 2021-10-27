@@ -2,6 +2,14 @@
   border: none;
   border-radius: 0px;
   margin: 8px;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
+}
+.card:hover{
+  cursor: pointer;
+}
+.card:active{
+  box-shadow: none;
+  transform: translateY(5px);
 }
 
 .card-header{
