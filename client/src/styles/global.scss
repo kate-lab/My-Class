@@ -3,6 +3,7 @@
   width: 100vw;
   min-width: 290px;
 }
+
 body{
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -13,7 +14,7 @@ body{
     font-weight: bold;
     color: black;
   }
-  h1, h2{
+  h1, h2, h3{
     font-family: 'Marmelad', serif;
   }
   h1{
@@ -23,7 +24,10 @@ body{
     font-size: 36px;
   }
 }
-.button{
+.container{
+  min-height: calc(100vh - 83px);
+}
+.button-custom{
   font-family: 'Marmelad', serif;
   display:flex;
   justify-content: center;
@@ -35,11 +39,11 @@ body{
   border: none;
   color: white;
 }
-.button:hover{
+.button-custom:hover{
   color: black;
   cursor: pointer;
 }
-.button:active{
+.button-custom:active{
   box-shadow: none;
   transform: translateY(7px);
 }
@@ -54,4 +58,23 @@ body{
 .auth-title{
   padding: 15px 25px;
   color: white;
+}
+
+.blue-background{
+  background-color: #66A5EF;
+}
+.pink-background{
+  background-color: #FF9494;
+}
+.yellow-background{
+  background-color: #FFC32B;
+}
+.green-background{
+  background-color: #59B057;
+}
+.purple-background{
+  background-color: #B57BFF;
+}
+.orange-background{
+  background-color: #FF984E;
 }

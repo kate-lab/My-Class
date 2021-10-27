@@ -1,4 +1,8 @@
+@import '~bootstrap/scss/bootstrap';
 @import './global.scss';
 @import './common.scss';
 @import './splash.scss';
 @import './auth.scss';
+@import './classroom/classroom.scss';
+@import './classroom/lessoncard.scss';
+@import './classroom/lessonshow.scss';

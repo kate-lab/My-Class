@@ -96,7 +96,7 @@ const Register = () => {
             <input type='password' className='form-control' name='password_confirmation' placeholder='Password again' value ={FormData.password_confirmation} onInput={handleChange}/>
             {/* {errors.password_confirmation && <p className="error">{errors.password_confirmation}</p>} */}
           </div>
-          <button className='button form-button'>Register</button>
+          <button className='button-custom form-button'>Register</button>
           <p>Already registered? <Link to='/login'>Login</Link></p>
     
         </form>

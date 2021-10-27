@@ -26,7 +26,7 @@ const Login = () => {
       console.log(formData)
       const { data } = await axios.post('/api/auth/login/', formData)  
       setTokenToLocalStorage(data.token)
-      history.push('/myclassroom')
+      history.push('/auth/myclassroom')
     } catch (error) {
       setErrors()
       console.log(error)
@@ -53,7 +53,7 @@ const Login = () => {
             <input type='password' className='form-control' name='password' placeholder='Password' value={FormData.password} onInput={handleChange} />
           </div>
           {errors && <p className="error">{errors}</p>}
-          <button className='button form-button'>Log in</button>
+          <button className='button-custom form-button'>Log in</button>
   
           <p>Don&apos;t have an account? <Link to='/register'>Register here</Link></p>
         </form>

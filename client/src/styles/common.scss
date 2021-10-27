@@ -1,0 +1,38 @@
+.navbar{
+  background-color: #59B057;
+  padding: 15px 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-family: 'Marmelad', serif;
+  a, .logout-link{
+    text-decoration: none;
+    color: white;
+    font-style: normal;
+    font-weight: normal;
+  }
+  a:hover, .logout-link:hover{
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .home-link{
+    font-size: 40px;
+  }
+  .links{
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    a{
+      margin: 0 22px;
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-link{
+    margin-bottom: 20px;
+  }
+}

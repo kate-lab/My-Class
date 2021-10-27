@@ -47,5 +47,502 @@
   "fields": {
     "topic_name": "Architecture"
   }
+},
+{
+  "model": "topics.topic",
+  "pk": 9,
+  "fields": {
+    "topic_name": "Physics"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 11,
+  "fields": {
+    "topic_name": "Philosophy"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 12,
+  "fields": {
+    "topic_name": "History"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 13,
+  "fields": {
+    "topic_name": "Geography"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 14,
+  "fields": {
+    "topic_name": "Languages"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 15,
+  "fields": {
+    "topic_name": "French"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 16,
+  "fields": {
+    "topic_name": "Spanish"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 17,
+  "fields": {
+    "topic_name": "Mandarin"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 18,
+  "fields": {
+    "topic_name": "Italian"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 19,
+  "fields": {
+    "topic_name": "German"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 20,
+  "fields": {
+    "topic_name": "Japanese"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 21,
+  "fields": {
+    "topic_name": "ICT"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 22,
+  "fields": {
+    "topic_name": "Computing"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 23,
+  "fields": {
+    "topic_name": "Coding"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 24,
+  "fields": {
+    "topic_name": "Design & Technology"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 25,
+  "fields": {
+    "topic_name": "Art History"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 26,
+  "fields": {
+    "topic_name": "Art and Design"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 27,
+  "fields": {
+    "topic_name": "Music"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 28,
+  "fields": {
+    "topic_name": "Physical Education (PE)"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 29,
+  "fields": {
+    "topic_name": "Citizenship"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 30,
+  "fields": {
+    "topic_name": "Religious Education"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 31,
+  "fields": {
+    "topic_name": "Humanities"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 32,
+  "fields": {
+    "topic_name": "Accounting"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 33,
+  "fields": {
+    "topic_name": "Engineering"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 34,
+  "fields": {
+    "topic_name": "Anthropology"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 35,
+  "fields": {
+    "topic_name": "Biology"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 36,
+  "fields": {
+    "topic_name": "Chemistry"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 37,
+  "fields": {
+    "topic_name": "Classical Studies"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 38,
+  "fields": {
+    "topic_name": "Dance"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 39,
+  "fields": {
+    "topic_name": "Criminology"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 40,
+  "fields": {
+    "topic_name": "Economics"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 41,
+  "fields": {
+    "topic_name": "Education"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 42,
+  "fields": {
+    "topic_name": "STEM"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 43,
+  "fields": {
+    "topic_name": "STEAM"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 44,
+  "fields": {
+    "topic_name": "Film & Cinema"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 45,
+  "fields": {
+    "topic_name": "Photography"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 46,
+  "fields": {
+    "topic_name": "Graphic Design"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 47,
+  "fields": {
+    "topic_name": "VR & AR"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 48,
+  "fields": {
+    "topic_name": "Game Design"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 49,
+  "fields": {
+    "topic_name": "Finance"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 50,
+  "fields": {
+    "topic_name": "Geology"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 51,
+  "fields": {
+    "topic_name": "Hospitality, Leisure & Tourism"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 52,
+  "fields": {
+    "topic_name": "Journalism"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 53,
+  "fields": {
+    "topic_name": "Law"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 54,
+  "fields": {
+    "topic_name": "Marketing"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 55,
+  "fields": {
+    "topic_name": "Media Studies"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 56,
+  "fields": {
+    "topic_name": "Medicine"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 57,
+  "fields": {
+    "topic_name": "Midwifery"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 58,
+  "fields": {
+    "topic_name": "Teamwork"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 59,
+  "fields": {
+    "topic_name": "Collaboration"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 60,
+  "fields": {
+    "topic_name": "Team Building"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 61,
+  "fields": {
+    "topic_name": "Management"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 62,
+  "fields": {
+    "topic_name": "Nursing"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 63,
+  "fields": {
+    "topic_name": "Politics"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 64,
+  "fields": {
+    "topic_name": "Design Thinking"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 65,
+  "fields": {
+    "topic_name": "Publishing"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 66,
+  "fields": {
+    "topic_name": "Social Studies"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 67,
+  "fields": {
+    "topic_name": "Sport"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 68,
+  "fields": {
+    "topic_name": "Software Engineering"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 69,
+  "fields": {
+    "topic_name": "Web Development"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 70,
+  "fields": {
+    "topic_name": "Theology"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 71,
+  "fields": {
+    "topic_name": "Veterinary Science"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 72,
+  "fields": {
+    "topic_name": "Zoology"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 73,
+  "fields": {
+    "topic_name": "Wellbeing & Mental Health"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 74,
+  "fields": {
+    "topic_name": "Critical Thinking and Problem Solving"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 75,
+  "fields": {
+    "topic_name": "Leadership"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 76,
+  "fields": {
+    "topic_name": "Communication"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 77,
+  "fields": {
+    "topic_name": "Time Management and Organisation"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 78,
+  "fields": {
+    "topic_name": "Conflict Resolution"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 79,
+  "fields": {
+    "topic_name": "Listening"
+  }
+},
+{
+  "model": "topics.topic",
+  "pk": 80,
+  "fields": {
+    "topic_name": "Public Speaking"
+  }
 }
 ]

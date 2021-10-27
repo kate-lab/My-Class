@@ -96,7 +96,7 @@ const LessonEditor = () => {
         formData,
         { headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` } }
       )
-      history.push(`/auth/classroom/${currentUserId}/`)
+      history.push('/auth/myclassroom/')
     } catch (err) {
       //error message set
       setErrors(err.response.data.errors)

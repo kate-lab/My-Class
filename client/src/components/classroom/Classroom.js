@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import Select from 'react-select'
 
 import LessonCard from './LessonCard'
 
 const Classroom = () => {
 
-  const [user, setUser] = useState(null)
-  const [hasError, setHasError] = useState(false)
+  const [ user, setUser ] = useState(null)
+  const [ topics , setTopics ] = useState([])
+  const [ filteredLessons, setFilteredLessons ] = useState([])
+  const [ hasError, setHasError ] = useState(false)
 
   const { id } = useParams()
 
   useEffect(() => {
-    
+
     const getUser = async () => {
       try {
         const { data } = await axios(`/api/auth/classroom/${id}`)
@@ -24,41 +27,88 @@ const Classroom = () => {
     getUser()
   }, [id])
 
+  useEffect(() => {
+    const getTopics = async () => {
+      try {
+        const { data } = await axios('/api/topics')
+        setTopics(data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getTopics()
+  }, [])
 
+  const topicOptions = topics.map(topic => (
+    { value: topic.topic_name, label: topic.topic_name, id: topic._id }
+  ))
 
+  const handleMultiSelected = (selected) => {
+    const lessons = user.lessons
+    // console.log(lessons)
+    // console.log('selected ->', selected)
+    const values = selected ? selected.map(topic => topic.value) : []
+    const filtered = lessons.filter(lesson => {
+  
+      return lesson.topics.some(topic => {
+        // console.log(topic.topic_name)
+        return values.includes(topic.topic_name)
+      
+      })
+    })
+    console.log('filtered ->', filtered)
+    values.length > 0 ? setFilteredLessons(filtered) : setFilteredLessons([])
+  }
 
 
   return (
     <>
       {user ?
 
-        <div className="classroom">
+        <div className="classroom container">
           <div className="class-section">
-            <div className="user-picture"></div>
+            <div className="user-picture-container">
+              <img src={user.profile_image} alt={user.display_name} className="user-picture"></img>
+            </div>
             <div className="user-info">
-              <div>Welcome to {user.display_name}&apos;s class</div>
+              <h2>Welcome to {user.display_name}&apos;s class</h2>
               <div className="class-actions-section">
-                <div>search</div>
-                <div>filter by topic</div>
-                <div>share class</div>
+                <div>
+                  <Select
+                    options={topicOptions}
+                    name='topics'
+                    className='topic-select-classroom'
+                    isMulti='true'
+                    placeholder='Select or search for lessons by topic(s)'
+                    onChange={(selected) => handleMultiSelected(selected)}
+                  />
+                </div>
               </div>
             </div>
           </div >
-          <div className="lesson-container">
-            {user.lessons.length > 0 ?
-              user.lessons.map(lesson => {
-                return <LessonCard key={lesson._id} {...lesson} />
-              })
-              :
-              <>
-                {
-                  hasError ?
-                    <h2 className='error-message'>Oh! Something went wrong</h2>
-                    :
-                    <h2 className='error-message'>Loading</h2>
-                }
-              </>
-            }
+          <div className="lesson-container container">
+            <div className="row g-3">
+
+              {user.lessons.length > 0 ?
+
+                (filteredLessons.length > 0 ? filteredLessons : user.lessons).map(lesson => {
+                  return <LessonCard key={lesson._id} {...lesson} />
+                })
+
+                :
+
+                <>
+                  {
+                    hasError ?
+                      <h2 className='error-message'>Oh! Something went wrong</h2>
+                      :
+                      <h2 className='error-message'>Loading</h2>
+                  }
+                </>
+
+              }
+
+            </div>
           </div>
         </div>
 
