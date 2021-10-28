@@ -8,7 +8,7 @@
 
 .user-picture-container{
   height:200px;
-  clip-path: circle(100px at center);
+  clip-path: circle(50% at center);
   .user-picture{
     width: 200px;
   }
@@ -20,23 +20,16 @@
   align-items: center;
   min-width: 350px;
   max-width: 550px;
-  .css-1s2u09g-control {
-    border: none;
-    border-radius: 0px;
-    svg{
-      color: #FF984E;
-      stroke-width: 1;
-    }
-    .css-14dclt2-Input{
-      font-size: 13px;
-    }
-  }
+
 }
 
 @media screen and (max-width: 760px) {
   .class-section{
     flex-direction: column;
     height: fit-content;
+    .user-picture-container{
+      clip-path: circle(100px at center);
+    }
     .button-custom{
       margin-top: 8px;
       font-size: 24px;

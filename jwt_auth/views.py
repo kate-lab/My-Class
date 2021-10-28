@@ -84,5 +84,13 @@ class CurrentUserView(APIView):
         serialized_user = PopulatedUserSerializer(request.user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)
     
+# GET USERS IN A LIST
+class UserListView(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
+    # GET ALL USERS AS LIST
+    def get(self, _request):
+        users = User.objects.all()
+        serialized_users = PopulatedUserSerializer(users, many=True)
+        return Response(serialized_users.data, status=status.HTTP_200_OK)
 

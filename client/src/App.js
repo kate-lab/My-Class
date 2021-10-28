@@ -4,6 +4,8 @@ import { BrowserRouter , Route , Switch } from 'react-router-dom'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 
+import Teachers from './components/teachers/Teachers'
+
 import Classroom from './components/classroom/Classroom'
 import LessonShow from './components/classroom/LessonShow'
 import MyClassroom from './components/classroom/MyClassroom'
@@ -28,6 +30,9 @@ function App() {
           </Route>
           <Route path='/login'>
             <Login />
+          </Route>
+          <Route path='/teachers'>
+            <Teachers />
           </Route>
           <Route exact path='/lessons'>
             <LessonList />

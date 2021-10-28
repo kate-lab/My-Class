@@ -139,22 +139,25 @@ const LessonEditor = () => {
                   <input type="textArea" className="form-control textarea" name="section_two_activity" placeholder="Add a longer activity that uses skills/knowledge developed in sections 1 and 2" value={FormData.section_two_activity} onInput={handleChange} maxLength="500"/>
                 </div>
               </div>
-              <div className="final-lesson-add-div col-12 col-lg-8 dots">
-                <h4>Lesson Summary</h4>
-                <input type="text" className="form-control textarea" name="summary" placeholder="Summarise your lesson here. What are the key take aways from this lesson? What can students go on to do next if they want to expand on what was learned?" value={FormData.summary} onInput={handleChange} maxLength="500"/>
-                <label htmlFor="topic" className="form-label">Topics this lesson covers:</label>
-                <Creatable
-                  options={topicOptions}
-                  name="topics"
-                  isMulti
-                  isClearable
-                  placeholder="Select topics or add a new topic"
-                  onChange={(selected) => handleMultiSelected(selected)}
-                  onCreateOption={(created) => handleCreatedTopic('topics', created)}
-                />
+              <div className="row justify-content-center">
+                <div className="final-lesson-add-div col-12 col-lg-8 dots">
+                  <h4>Lesson Summary</h4>
+                  <input type="text" className="form-control textarea" name="summary" placeholder="Summarise your lesson here. What are the key take aways from this lesson? What can students go on to do next if they want to expand on what was learned?" value={FormData.summary} onInput={handleChange} maxLength="500"/>
+                  <label htmlFor="topic" className="form-label">Topics this lesson covers:</label>
+                  <Creatable
+                    options={topicOptions}
+                    name="topics"
+                    isMulti
+                    isClearable
+                    placeholder="Select topics or add a new topic"
+                    onChange={(selected) => handleMultiSelected(selected)}
+                    onCreateOption={(created) => handleCreatedTopic('topics', created)}
+                  />
+                </div>
               </div>
-              <button className="add-lesson-button button-custom blue-background">Add/Edit Lesson</button>
-  
+              <div className="justify-content-center">
+                <button className="add-lesson-button button-custom col blue-background">Add/Edit Lesson</button>
+              </div>
             </form>
           </div>
         </>

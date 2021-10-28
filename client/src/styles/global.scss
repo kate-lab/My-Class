@@ -27,7 +27,7 @@ body{
   }
 }
 .container{
-  min-height: calc(100vh - 83px);
+  min-height: calc(100vh - 60px);
 }
 .button-custom{
   font-family: 'Marmelad', serif;
@@ -50,10 +50,22 @@ body{
   box-shadow: none;
   transform: translateY(5px);
 }
-
+.css-1s2u09g-control {
+  border: none;
+  border-radius: 0px;
+  width: 350px;
+  min-width: 350px;
+  svg{
+    color: #FF984E;
+    stroke-width: 1;
+  }
+  .css-14dclt2-Input{
+    font-size: 13px;
+  }
+}
 .grid{
-  height: 100%;
-  background-size: 40px 40px;
+  display: flex;
+  background-size: 30px 30px;
   background-image:
     linear-gradient(to right, rgb(210, 210, 210) 1px, transparent 1px),
     linear-gradient(to bottom, rgb(210, 210, 210) 1px, transparent 1px);
