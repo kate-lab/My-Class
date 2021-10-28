@@ -1,3 +1,4 @@
+
 .form-page{
   display:flex;
   flex-direction: column;
@@ -12,16 +13,18 @@
   .form-container{
     display:flex;
     flex-direction: column;
+
+    align-self: center;
     font-size: 18px;
     background: #fff080;
-    padding: 40px 30px 30px 30px;
-  
+    padding: 30px;
+    min-width: 350px;
+    max-width: 700px;
   }
   .form-field{
     display: flex;
     flex-direction: column;
     text-align: left;
-    
   }
   input{
     font-size: 18px;
@@ -29,23 +32,35 @@
     margin-bottom: 10px;
     border: none;
   }
+  .custom-file-upload{
+    width: 100%;
+    padding: 8px;
+    color: white;
+    input{
+      margin-bottom: 5px;
+      padding: 0;
+    }
+  }
   .image-field{
     display: flex;
-    padding: 5px 10px;
-    margin-bottom: 12px;
-    input.input{
-      margin: 0 20px;
-      .custom-file-upload{
-        padding: 8px;
-        color: white;
-      }
-    }
+    flex-direction: column;
+    padding: 5px 5px;
+    width: 100%;
   }
   .form-button{
     background-color: #59B057;
     padding: 10px 20px;
     margin: 20px auto;
   }
+  .form-label{
+    text-align: left;
+    margin-bottom: 5px;
+  }
+}
+.auth{
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
 }
 
 @media screen and (max-width: 550px) {

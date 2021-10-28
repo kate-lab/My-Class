@@ -14,7 +14,7 @@ import jwt
 
 from .serializers.auth import AuthUserSerializer
 from .serializers.populated import PopulatedUserSerializer
-from .serializers.profile import PopulatedProfileSerializer
+# from .serializers.profile import PopulatedProfileSerializer
 
 User = get_user_model()
 
@@ -81,7 +81,7 @@ class SingleUserView(APIView):
 class CurrentUserView(APIView):
     permission_classes = (IsAuthenticated, )
     def get(self, request):
-        serialized_user = PopulatedProfileSerializer(request.user)
+        serialized_user = PopulatedUserSerializer(request.user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)
     
 

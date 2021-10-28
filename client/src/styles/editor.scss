@@ -1,14 +1,39 @@
-.form-page{
-  display: flex;
-  flex-direction: column;
-
+.lesson-editor{
+  .dots{
+    border: 5px dotted #59B057;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .add-lesson-button{
+    width: 330px;
+  }
+  .textarea{
+    height: 100px;
+  }
+  .textarea::placeholder {
+    white-space:pre-line; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: 5px;
+  }
+  .form-label{
+    font-size: 18px;
+  }
+  .custom-file-upload{
+    width: 100%;
+    padding: 8px;
+    color: white;
+    input{
+      margin-bottom: 5px;
+      padding: 0;
+    }
+  }
 }
-.bottom-lesson-add-div{
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  div{
-    padding: 5px;
-    margin: 5px;
+
+@media screen and (max-width: 820px) {
+  .middle-lesson-add-div{
+    display: flex;
+    flex-direction: column;
   }
 }

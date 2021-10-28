@@ -8,8 +8,6 @@ const LessonShow = () => {
   const [lesson, setLesson] = useState(null)
   const [hasError, setHasError] = useState(false)
 
-  const payload = getPayload()
-  const userId = payload.sub
   const { id } = useParams()
 
   useEffect(() => {
@@ -27,6 +25,7 @@ const LessonShow = () => {
   console.log(lesson)
 
   const userIsOwner = (ownerId) => {
+    const payload = getPayload()
     if (!payload) return
     return ownerId === payload.sub
   }
@@ -38,7 +37,7 @@ const LessonShow = () => {
           headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
         }
       )
-      history.push(`/classroom/${userId}`)
+      history.push('/lessons')
     } catch (err) {
       console.log(err)
     }
@@ -50,19 +49,17 @@ const LessonShow = () => {
         <>
           <div className="container lesson-show">
             <div>
-              <Link to={`/classroom/${lesson.user}`}>
+              <Link to={`/classroom/${lesson.owner.id}`}>
                 <div className="profile-button button-custom purple-background">
                   Back to {lesson.owner.display_name}&apos;s class
                 </div>
               </Link>
               {
-                userIsOwner(lesson.owner._id) ?
+                userIsOwner(lesson.owner._id) &&
                   <div className="edit-button-container">
                     <Link to={'/lessoneditor'} className="button-custom yellow-background">Edit Lesson</Link>
                     <button onClick={handleDelete} className="button-custom pink-background">Delete Lesson</button>
                   </div>
-                  :
-                  <></>
               }
             </div>
             <h2>{lesson.title}</h2>
@@ -78,11 +75,13 @@ const LessonShow = () => {
               <h4>{lesson.section_one_title}</h4>
               <div className="blue-background">{lesson.section_one_text}</div>
               <img src={lesson.section_one_picture} alt={lesson.section_one_title} className="lesson-image"/>
+              <div className="green-background">{lesson.section_one_activity}</div>
 
               <h4>{lesson.section_two_title}</h4>
               <div className="yellow-background">{lesson.section_two_text}</div>
               <img src={lesson.section_two_picture} alt={lesson.section_two_title} className="lesson-image"/>
-            
+              <div className="blue-background">{lesson.section_two_activity}</div>
+
               <h4>Summary</h4>
               <div className="pink-background">{lesson.summary}</div>
             

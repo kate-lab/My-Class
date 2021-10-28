@@ -28,10 +28,8 @@ const Splash = () => {
                   </div>
                 </Link>
                 <Link to="/register/"  className="splash-button register-button button-custom">
-                  <div>
-                    <span className="small-text">new here?</span><br/>
-                    Register
-                  </div>
+                  <span className="small-text">new here?</span>
+                  Register
                 </Link>
               </div>
             </div>

@@ -6,12 +6,13 @@ import Register from './components/auth/Register'
 
 import Classroom from './components/classroom/Classroom'
 import LessonShow from './components/classroom/LessonShow'
+import MyClassroom from './components/classroom/MyClassroom'
 
 import LessonEditor from './components/lesson/LessonEditor'
+import LessonList from './components/lesson/LessonList'
 
 import Splash from './components/Splash'
 import Navbar from './components/common/Navbar'
-
 
 function App() {
   return (
@@ -28,8 +29,14 @@ function App() {
           <Route path='/login'>
             <Login />
           </Route>
+          <Route exact path='/lessons'>
+            <LessonList />
+          </Route>
           <Route path='/classroom/:id'>
             <Classroom />
+          </Route>
+          <Route path='/myclassroom'>
+            <MyClassroom />
           </Route>
           <Route path='/lessons/:id'>
             <LessonShow />

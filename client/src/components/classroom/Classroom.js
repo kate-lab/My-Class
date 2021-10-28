@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Select from 'react-select'
-import { getPayload } from '../helpers/Auth.js'
+// import { getPayload } from '../helpers/Auth.js'
 
 import LessonCard from './LessonCard'
 
@@ -61,11 +61,11 @@ const Classroom = () => {
     values.length > 0 ? setFilteredLessons(filtered) : setFilteredLessons([])
   }
 
-  const userIsClassroom = (classroomId) => {
-    const payload = getPayload()
-    if (!payload) return
-    return classroomId === payload.sub
-  }
+  // const userIsClassroom = (classroomId) => {
+  //   const payload = getPayload()
+  //   if (!payload) return
+  //   return classroomId === payload.sub
+  // }
 
   return (
     <>
@@ -90,11 +90,11 @@ const Classroom = () => {
                   />
                 </div>
               </div>
-              { userIsClassroom(user._id) ?
+              {/* { userIsClassroom(user._id) ?
                 <Link to={'/lessoneditor'} className="button-custom">Add a lesson to your class</Link>
                 :
                 <></>
-              }
+              } */}
             </div>
           </div >
           <div className="lesson-container container">
@@ -113,7 +113,7 @@ const Classroom = () => {
                     hasError ?
                       <h2 className='error-message'>Oh! Something went wrong</h2>
                       :
-                      <h2 className='error-message'>Loading</h2>
+                      <h2 className='error-message'>{user.display_name} has no lessons yet</h2>
                   }
                 </>
 

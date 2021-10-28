@@ -1,0 +1,18 @@
+.lessons-title-section, .select-lessons-list{
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+
+}
+.lesson-list-card{
+  h3{
+    font-size: 20px;
+  }
+  .cropped-image-small{
+    height: 250px;
+    object-fit: cover;
+  }
+}
