@@ -10,7 +10,8 @@ import Classroom from './components/classroom/Classroom'
 import LessonShow from './components/classroom/LessonShow'
 import MyClassroom from './components/classroom/MyClassroom'
 
-import LessonEditor from './components/lesson/LessonEditor'
+import AddLesson from './components/lesson/AddLesson'
+import EditLesson from './components/lesson/EditLesson'
 import LessonList from './components/lesson/LessonList'
 
 import Splash from './components/Splash'
@@ -43,11 +44,14 @@ function App() {
           <Route path='/myclassroom'>
             <MyClassroom />
           </Route>
-          <Route path='/lessons/:id'>
+          <Route exact path='/lessons/:id'>
             <LessonShow />
           </Route>
-          <Route path='/lessoneditor'>
-            <LessonEditor />
+          <Route path='/lessons/:id/edit'>
+            <EditLesson />
+          </Route>
+          <Route path='/addlesson'>
+            <AddLesson />
           </Route>
         </Switch>
       </BrowserRouter>

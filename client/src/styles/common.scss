@@ -9,6 +9,9 @@
   #collapsibleNavbar{
     justify-content: right;
   }
+  .logout-link:hover{
+    cursor: pointer;
+  }
 
 }
 @media screen and (max-width: 550px) {

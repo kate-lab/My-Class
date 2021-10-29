@@ -37,7 +37,7 @@ const Navbar = () => {
                       <Link to="/teachers" className="nav-link">Teachers</Link>
                     </li>
                     <li className="nav-item">
-                      <Link to="/lessoneditor" className="nav-link">Add New Lesson</Link>
+                      <Link to="/addlesson" className="nav-link">Add New Lesson</Link>
                     </li>
                     <li className="nav-item">
                       <span className="logout-link nav-link" onClick={handleLogout}>Logout</span>

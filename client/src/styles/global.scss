@@ -66,9 +66,10 @@ body{
 .grid{
   display: flex;
   background-size: 30px 30px;
+  min-height: 100vh;
   background-image:
-    linear-gradient(to right, rgb(210, 210, 210) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(210, 210, 210) 1px, transparent 1px);
+    linear-gradient(to right, rgba(210, 210, 210, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(210, 210, 210, 0.6) 1px, transparent 1px);
 }
 
 .auth-title{

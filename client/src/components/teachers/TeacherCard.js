@@ -8,7 +8,7 @@ const TeacherCard = ({ id, display_name, profile_image }) => {
 
     <div className="lesson col-6 col-md-4 col-lg-3">
       <Link to={`/classroom/${id}`}>
-        <div className="card teacher-list-card h-100 purple-background">
+        <div className="card teacher-list-card purple-background">
           <h4 className="card-header">{display_name}</h4>
           <img src={profile_image} className="teacher-image" alt={display_name}/>
         </div>

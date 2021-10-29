@@ -31,6 +31,11 @@
     }
   }
 }
+.edit-lesson{
+  ::placeholder{
+    color: black;
+  }
+}
 
 @media screen and (max-width: 820px) {
   .middle-lesson-add-div{

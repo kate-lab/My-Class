@@ -1,16 +1,15 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { userIsAuthenticated, getTokenFromLocalStorage, getPayload } from '../helpers/Auth.js'
-import Creatable from 'react-select/creatable'
+import { userIsAuthenticated, getTokenFromLocalStorage } from '../helpers/Auth.js'
+// import Creatable from 'react-select/creatable'
+import Select from 'react-select'
 import 'dotenv/config'
 
 
-const LessonEditor = () => {
+const AddLesson = () => {
 
   const history = useHistory()
-  const currentUserId = getPayload()._id
-  console.log(currentUserId)
 
   const [ errors , setErrors ] = useState()
   const [ topics , setTopics ] = useState([])
@@ -53,13 +52,14 @@ const LessonEditor = () => {
   const handleChange = (event) => {
     const newObj = { ...formData, [event.target.name]: event.target.value }
     setFormData(newObj)
+    console.log('form data ->',formData)
   }
   const handleImageOneChange = async (event) => {
     const dataToSend = new FormData()
     dataToSend.append('file', event.target.files[0])
     dataToSend.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
     const { data } = await axios.post(process.env.REACT_APP_CLOUDINARY_URL, dataToSend)
-    setFormData({ ...formData, profile_image: data.url })
+    setFormData({ ...formData, section_one_picture: data.url })
     // setErrors({ ...errors, section_one_picture: 'no image added' })
   }
   const handleImageTwoChange = async (event) => {
@@ -67,36 +67,26 @@ const LessonEditor = () => {
     dataToSend.append('file', event.target.files[0])
     dataToSend.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
     const { data } = await axios.post(process.env.REACT_APP_CLOUDINARY_URL, dataToSend)
-    setFormData({ ...formData, profile_image: data.url })
+    setFormData({ ...formData, section_two_picture: data.url })
     // setErrors({ ...errors, section_two_picture: 'no image added' })
   }
-  const handleMultiSelected = (selected) => {
-    console.log('selected topic ->', selected)
-    const selectedTopics = selected ? selected.map(item => item.id) : []
-    console.log(selectedTopics)
-    setFormData({ ...formData, topics: selectedTopics })
-    // setErrors({ ...errors, topics: 'choose a topic' })
-  }
 
-  const handleCreatedTopic = async (created) => {
-    try {
-      await axios.post('/api/topics/', created)
-    } catch (err) {
-      setErrors(err.response.data.errors)
-      console.log(errors)
-    }
+  const handleMultiSelected = (selected, name) => {
+    const selectedTopics = selected ? selected.map(item => item.value._id) : []
+    console.log('selected topics ->',selectedTopics)
+    setFormData({ ...formData, [name]: selectedTopics })
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(formData)
+    console.log('submitting ->',formData)
     try {
       await axios.post(
         '/api/lessons/', 
         formData,
         { headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` } }
       )
-      history.push('/auth/myclassroom/')
+      history.push('/myclassroom/')
     } catch (err) {
       //error message set
       setErrors(err.response.data.errors)
@@ -144,19 +134,19 @@ const LessonEditor = () => {
                   <h4>Lesson Summary</h4>
                   <input type="text" className="form-control textarea" name="summary" placeholder="Summarise your lesson here. What are the key take aways from this lesson? What can students go on to do next if they want to expand on what was learned?" value={FormData.summary} onInput={handleChange} maxLength="500"/>
                   <label htmlFor="topic" className="form-label">Topics this lesson covers:</label>
-                  <Creatable
+                  <Select
                     options={topicOptions}
                     name="topics"
                     isMulti
                     isClearable
-                    placeholder="Select topics or add a new topic"
-                    onChange={(selected) => handleMultiSelected(selected)}
-                    onCreateOption={(created) => handleCreatedTopic('topics', created)}
+                    placeholder="Select topics covered in this lesson"
+                    onChange={(selected) => handleMultiSelected(selected, 'topics')}
+                    // onCreateOption={(created) => handleCreatedTopic('topics', created)}
                   />
                 </div>
               </div>
               <div className="justify-content-center">
-                <button className="add-lesson-button button-custom col blue-background">Add/Edit Lesson</button>
+                <button className="add-lesson-button button-custom col blue-background">Add Lesson</button>
               </div>
             </form>
           </div>
@@ -164,11 +154,11 @@ const LessonEditor = () => {
         :
         // if isAuthenticated is false:
         <>
-          <h2>Please log in to add or edit lessons</h2>
+          <h2>Please log in to add a new lesson</h2>
         </>
       }
     </>
   )
 }
 
-export default LessonEditor
+export default AddLesson

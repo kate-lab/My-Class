@@ -5,6 +5,10 @@
   font-size: 30px;
   padding: 15px;
 }
+.lesson-info-container{
+  display: flex;
+  justify-content: space-between;
+}
 .lesson-content-container{
   font-family: 'Marmelad', serif;
   padding-bottom: 40px;
