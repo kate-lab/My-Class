@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.urls import include
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include, re_path
+from .views import index
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('api/auth/', include('jwt_auth.urls')),
     path('api/lessons/', include('lessons.urls')),
     path('api/topics/', include('topics.urls')),
+    re_path(r'^.*$', index)
 ]

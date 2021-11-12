@@ -20,7 +20,7 @@ const AddLesson = () => {
 
     const getTopics = async () => {
       try {
-        const { data } = await axios('/api/topics')
+        const { data } = await axios('/api/topics/')
         setTopics(data)
       } catch (err) {
         console.log(err)
