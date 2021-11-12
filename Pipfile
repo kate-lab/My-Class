@@ -10,6 +10,7 @@ djangorestframework = "*"
 pylint = "*"
 autopep8 = "*"
 pyjwt = "*"
+django-on-heroku = "*"
 
 [dev-packages]
 
