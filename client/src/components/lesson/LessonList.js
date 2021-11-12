@@ -15,7 +15,7 @@ const LessonList = () => {
   useEffect(() => {
     const getLessons = async () => {
       try {
-        const { data } = await axios('/api/lessons')
+        const { data } = await axios('/api/lessons/')
         setLessons(data)
       } catch (err) {
         setHasError(true)
@@ -27,7 +27,7 @@ const LessonList = () => {
   useEffect(() => {
     const getTopics = async () => {
       try {
-        const { data } = await axios('/api/topics')
+        const { data } = await axios('/api/topics/')
         setTopics(data)
       } catch (err) {
         setHasError(true)

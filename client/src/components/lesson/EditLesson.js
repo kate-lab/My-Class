@@ -21,7 +21,7 @@ const EditLesson = () => {
   useEffect(() => {
     const getLesson = async () => {
       try {
-        const { data } = await axios(`/api/lessons/${id}`)
+        const { data } = await axios(`/api/lessons/${id}/`)
         setLesson(data)
       } catch (err) {
         setHasError(true)
@@ -36,7 +36,7 @@ const EditLesson = () => {
 
     const getTopics = async () => {
       try {
-        const { data } = await axios('/api/topics')
+        const { data } = await axios('/api/topics/')
         setTopics(data)
       } catch (err) {
         console.log(err)
@@ -46,7 +46,7 @@ const EditLesson = () => {
   }, [history])
 
   const topicOptions = topics.map(topic => (
-    { value: topic.topic_name, label: topic.topic_name, id: topic._id }
+    { value: topic.topic_name, label: topic.topic_name, id: topic.id }
   ))
 
 
@@ -68,7 +68,6 @@ const EditLesson = () => {
   const handleChange = (event) => {
     const newObj = { ...formData, [event.target.name]: event.target.value }
     setFormData(newObj)
-    console.log('form data ->',formData)
   }
   const handleImageOneChange = async (event) => {
     const dataToSend = new FormData()
@@ -88,7 +87,7 @@ const EditLesson = () => {
   }
 
   const handleMultiSelected = (selected, name) => {
-    const selectedTopics = selected ? selected.map(item => item.value._id) : []
+    const selectedTopics = selected ? selected.map(topic => topic.id) : []
     console.log('selected topics ->',selectedTopics)
     setFormData({ ...formData, [name]: selectedTopics })
   }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
-import { getTokenFromLocalStorage, getPayload } from '../helpers/Auth'
+import { getTokenFromLocalStorage } from '../helpers/Auth'
 
 import LessonCard from './LessonCard'
 
@@ -13,13 +13,11 @@ const MyClassroom = () => {
   const [filteredLessons, setFilteredLessons] = useState([])
   const [hasError, setHasError] = useState(false)
 
-  console.log('payload ->', getPayload())
-
   useEffect(() => {
     const getProfile = async () => {
       try {
         const { data } = await axios.get(
-          '/api/auth/myclassroom',
+          '/api/auth/myclassroom/',
           { headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` } }
         )
         setProfile(data)
@@ -28,14 +26,13 @@ const MyClassroom = () => {
       }
     }
     getProfile()
-    console.log('profile ->', profile)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
   useEffect(() => {
     const getTopics = async () => {
       try {
-        const { data } = await axios('/api/topics')
+        const { data } = await axios('/api/topics/')
         setTopics(data)
       } catch (err) {
         console.log(err)
@@ -45,7 +42,7 @@ const MyClassroom = () => {
   })
 
   const topicOptions = topics.map(topic => (
-    { value: topic.topic_name, label: topic.topic_name, id: topic._id }
+    { value: topic.topic_name, label: topic.topic_name, id: topic.id }
   ))
 
   const handleMultiSelected = (selected) => {
@@ -101,7 +98,7 @@ const MyClassroom = () => {
               {profile.lessons.length > 0 ?
   
                 (filteredLessons.length > 0 ? filteredLessons : profile.lessons).map(lesson => {
-                  return <LessonCard key={lesson._id} {...lesson} />
+                  return <LessonCard key={lesson.id} {...lesson} />
                 })
   
                 :

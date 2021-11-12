@@ -15,7 +15,7 @@ const LessonShow = () => {
   useEffect(() => {
     const getLesson = async () => {
       try {
-        const { data } = await axios(`/api/lessons/${id}`)
+        const { data } = await axios(`/api/lessons/${id}/`)
         setLesson(data)
       } catch (err) {
         setHasError(true)
@@ -36,7 +36,7 @@ const LessonShow = () => {
     if (window.confirm('Are you sure you want to delete this lesson?')){
       try {
         await axios.delete(
-          `/api/lessons/${id}`,
+          `/api/lessons/${id}/`,
           {
             headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
           }

@@ -30,9 +30,9 @@ const AddLesson = () => {
   }, [history])
 
   const topicOptions = topics.map(topic => (
-    { value: topic.topic_name, label: topic.topic_name, id: topic._id }
+    { value: topic.topic_name, label: topic.topic_name, id: topic.id }
   ))
-
+  console.log(topicOptions)
 
   const [formData, setFormData] = useState({
     title: '',
@@ -52,7 +52,6 @@ const AddLesson = () => {
   const handleChange = (event) => {
     const newObj = { ...formData, [event.target.name]: event.target.value }
     setFormData(newObj)
-    console.log('form data ->',formData)
   }
   const handleImageOneChange = async (event) => {
     const dataToSend = new FormData()
@@ -72,8 +71,7 @@ const AddLesson = () => {
   }
 
   const handleMultiSelected = (selected, name) => {
-    const selectedTopics = selected ? selected.map(item => item.value._id) : []
-    console.log('selected topics ->',selectedTopics)
+    const selectedTopics = selected ? selected.map(topic => topic.id) : []
     setFormData({ ...formData, [name]: selectedTopics })
   }
 

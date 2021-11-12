@@ -12,7 +12,7 @@ const Teachers = () => {
   useEffect(() => {
     const getTeachers = async () => {
       try {
-        const { data } = await axios('/api/auth/teachers')
+        const { data } = await axios('/api/auth/teachers/')
         setTeachers(data)
       } catch (err) {
         setHasError(true)

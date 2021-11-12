@@ -19,7 +19,7 @@ const Classroom = () => {
 
     const getUser = async () => {
       try {
-        const { data } = await axios(`/api/auth/classroom/${id}`)
+        const { data } = await axios(`/api/auth/classroom/${id}/`)
         setUser(data)
       } catch (err) {
         setHasError(true)
@@ -31,7 +31,7 @@ const Classroom = () => {
   useEffect(() => {
     const getTopics = async () => {
       try {
-        const { data } = await axios('/api/topics')
+        const { data } = await axios('/api/topics/')
         setTopics(data)
       } catch (err) {
         console.log(err)
@@ -41,7 +41,7 @@ const Classroom = () => {
   }, [])
 
   const topicOptions = topics.map(topic => (
-    { value: topic.topic_name, label: topic.topic_name, id: topic._id }
+    { value: topic.topic_name, label: topic.topic_name, id: topic.id }
   ))
 
   const handleMultiSelected = (selected) => {
