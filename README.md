@@ -20,9 +20,11 @@ I had found Trello to be really useful in group projects, so after having worked
 
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186483/classroom/screengrabs/Screenshot_2021-10-21_at_10.44.53_yqxu8h.png" alt="trello board">
 
+I started my project by building out my backend database and then added my front end React.js app.
+
 ## Backend and Database
 
-This was my first Django project using Python as the main language, so it was a steep learning curve to build my back end in this case, butI really enjoyed the precision of Django and the clarity of error messaging. I could see where things were going wrong and rectify mistakes very precisely. I used tableplus to check my database, and built in populated serializers to create the relationships between my collections within the database.
+This was my first Django project using Python as the main language to interact with a PostgreSQL database, so it was a steep learning curve to build my back end in this case, but I really enjoyed the precision of Django and the clarity of error messaging. I could see where things were going wrong and rectify mistakes very precisely. I used Tableplus to check my database, and built in populated serializers to create the relationships between my collections within the database.
 
 I had three main collections within my database with various different connections between them.
 
