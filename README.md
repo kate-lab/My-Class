@@ -22,6 +22,29 @@ I had found Trello to be really useful in group projects, so after having worked
 
 ## Backend and Database
 
+This was my first Django project using Python as the main language, so it was a steep learning curve to build my back end in this case, butI really enjoyed the precision of Django and the clarity of error messaging. I could see where things were going wrong and rectify mistakes very precisely. I used tableplus to check my database, and built in populated serializers to create the relationships between my collections within the database.
+
+I had three main collections within my database with various different connections between them.
+
+### The User collection
+
+Using the Django Basic User model, and building upon Django's in-built authorization functionality, I wanted a database of users, who could register, login, add/edit/delete lessons that would be shown in their class. The class is essentially a populated user profile. The user could be the owner of a lesson.
+
+ <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637189605/classroom/screengrabs/Screenshot_2021-11-17_at_22.41.38_d6xr8v.png" alt="user db" width="600">
+ 
+### The Topic collection
+
+A list of topics for a user to tag a lesson with. This would later be used to search within a list of lessons.
+
+<img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637189605/classroom/screengrabs/Screenshot_2021-11-17_at_22.40.40_dxgavf.png" alt="topic db" width="600">
+
+### The Lesson collection
+
+A list of all lessons and the key information input through the add lesson form, with a many to one relationship with the user and a many to many relationship with the topics tagged in it.
+
+<img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637189606/classroom/screengrabs/Screenshot_2021-11-17_at_22.39.45_vdlcdt.png" alt="lesson db" width="600">
+<img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637189605/classroom/screengrabs/Screenshot_2021-11-17_at_22.40.23_amuxa1.png" alt="topic relationships db" width="600">
+
 ## Wireframes and Frontend
 
 I really wanted to ensure this app was visually striking in order to engage and excite the user, so I knew I wanted to give a good amount of time to how my frontend application looked. In order to do this, I used Figma to plan out the feel of the design of my site, as well as considering how the user journey would work and how the database would be accessed, edited and added to by the front end interface.
