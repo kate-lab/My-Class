@@ -130,7 +130,7 @@ In parallel terminal to run frontend:
 - cd client 
 - yarn start
 
-## Final Product
+## Finished Product
 
 I am really pleased that the final product is very much like my plans in Figma, with some added detail like the grid pattern, built using a CSS gradient. It looks fun and engaging and feels like 90s stationary - taking me back to being a school kid!
 
