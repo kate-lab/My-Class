@@ -149,7 +149,7 @@ I also developed some additional pages during the project that I didn't develop 
 
 I am really pleased that the final product is very much like my plans in Figma, with some added detail like the grid pattern, built using a CSS gradient. It looks fun and engaging and feels like 90s stationary - taking me back to being a school kid!
 
-Play with the app on the demo hosted on [Heroku](https://class-content-creator.herokuapp.com/).
+Play with the app on the demo hosted on [Heroku](https://my-class-content-creator.herokuapp.com/).
 
 To demo the site without registering, use the following details:
 - email: hello@email.com
