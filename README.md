@@ -3,16 +3,56 @@
 
 ## Contents
 
-- [Introduction](#introduction)
+- [Overview](#overview)
+- [Brief](#brief)
+- [Tech Stack and Installs](#tech-stack-and-installs)
 - [Planning Process](#planning-process)
 - [Backend and Database](#backend-and-database)
 - [Wireframes and Frontend](#wireframes-and-frontend)
-- [Tech Stack and Installs](#tech-stack-and-installs)
 - [Finished Product](#finished-product)
+- [Project Challenges](#project-challenges)
+- [Project Wins](#project-wins)
 
-## Introduction
+
+## Overview
 
 This app was built as my final project during the General Assembly Software Engineering Immersive course. This full stack app was made entirely by me using a Django/PostgreSQL/Python backend database, with a frontend in React.js. This application is a place for teachers to upload and share their lessons with students and gain inspiration from other teachers. It is vibrant and fun and completely mobile responsive to ensure students with limited technology can access the pages.
+
+## Brief
+
+Our project brief was as follows:
+
+We want a full stack application with a React front-end and a Django back-end
+We want to see a fully functional RESTful api with all CRUD routes (GET, POST, PUT, DELETE)
+We want you to use at least one OneToMany & one ManyToMany relationship (more lenient on this for solo projects)
+Custom authentication (register/login) is a nice to have for solo projects, and a requirement for group projects
+
+My aim was to try and develop an app which had the full gamut of requirements - so I used the “group project” requirements as the goal for my MVP, despite working solo.
+
+## Tech Stack and Installs
+
+This project was built using a Django/Python backend to interact with a PostgreSQL database, and the front end was built in React.js.
+
+### Packages
+
+- axios
+- http-proxy-middleware
+- react-select
+- dotenv
+- react-router-dom
+- bootstrap
+
+### To Run
+
+From root directory to run backend:
+
+- pipenv shell
+- python manage.py runserver
+
+In parallel terminal to run frontend:
+
+- cd client 
+- yarn start
 
 ## Planning Process
 
@@ -105,31 +145,6 @@ I also developed some additional pages during the project that I didn't develop 
 - All lessons inspiration page, for all lessons added by all teachers.
 - A teacher index to browse through all teachers' classes.
 
-## Tech Stack and Installs
-
-This project was built using a Django/Python backend to interact with a PostgreSQL database, and the front end was built in React.js.
-
-### Packages
-
-- axios
-- http-proxy-middleware
-- react-select
-- dotenv
-- react-router-dom
-- bootstrap
-
-### To Run
-
-From root directory to run backend:
-
-- pipenv shell
-- python manage.py runserver
-
-In parallel terminal to run frontend:
-
-- cd client 
-- yarn start
-
 ## Finished Product
 
 I am really pleased that the final product is very much like my plans in Figma, with some added detail like the grid pattern, built using a CSS gradient. It looks fun and engaging and feels like 90s stationary - taking me back to being a school kid!
@@ -163,3 +178,19 @@ Play with the app on the demo hosted on [Heroku](https://class-content-creator.h
 ### Teacher Index
 
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186483/classroom/screengrabs/Screenshot_2021-11-01_at_09.26.40_xbma0y.png" alt="teacher index" width="600">
+
+## Project Challenges
+
+I sometimes found working on my own difficult as it was just me and Google to try and solve problems, but this was a real exercise in resilience, teaching me to trust my own knowledge and experiment and make mistakes that I eventually would fix.
+
+## Project Wins
+
+Generally I am really happy with the final product that I built within a limited time. I am really passionate about the subject matter so I could really build something that a teacher would find useful and that would engage students with playful and exciting design. 
+
+I planned well so I had lots of time to make all the features I wanted to, as well as adding some new components, like the teachers index page and all lessons inspiration page. These were fairly quick wins but really made a difference to the richness of the site! I had that information within my databases so why not show it to the user!
+
+## Bugs and Future Features
+
+On “edit lesson” the lesson being edited is loading as placeholder text, but this is not technically editable and so doesn’t quite work. So I would like to change this so that it is loaded in as the actual value of the lesson form, with any changes just editing each input individually.
+I want to add a creatable React Select on the “add lesson” form, so that the user can add new topics if they don’t see the topic they need on the list. This will involve posting to the topics API.
+Eventually I would like to add a learner user database, who would be able to comment or add files to their linked (as a many to one relationship) teacher’s lessons to show the work they had created. They could also have a library of their own “comments” as a homework folder.
