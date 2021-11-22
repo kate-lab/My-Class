@@ -191,6 +191,6 @@ I planned well so I had lots of time to make all the features I wanted to, as we
 
 ## Bugs and Future Features
 
-On “edit lesson” the lesson being edited is loading as placeholder text, but this is not technically editable and so doesn’t quite work. So I would like to change this so that it is loaded in as the actual value of the lesson form, with any changes just editing each input individually.
-I want to add a creatable React Select on the “add lesson” form, so that the user can add new topics if they don’t see the topic they need on the list. This will involve posting to the topics API.
-Eventually I would like to add a learner user database, who would be able to comment or add files to their linked (as a many to one relationship) teacher’s lessons to show the work they had created. They could also have a library of their own “comments” as a homework folder.
+- On “edit lesson” the lesson being edited is loading as placeholder text, but this is not technically editable and so doesn’t quite work. So I would like to change this so that it is loaded in as the actual value of the lesson form, with any changes just editing each input individually.
+- I want to add a creatable React Select on the “add lesson” form, so that the user can add new topics if they don’t see the topic they need on the list. This will involve posting to the topics API.
+- Eventually I would like to add a learner user database, who would be able to comment or add files to their linked (as a many to one relationship) teacher’s lessons to show the work they had created. They could also have a library of their own “comments” as a homework folder.
