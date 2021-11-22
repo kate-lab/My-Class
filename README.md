@@ -151,6 +151,10 @@ I am really pleased that the final product is very much like my plans in Figma, 
 
 Play with the app on the demo hosted on [Heroku](https://class-content-creator.herokuapp.com/).
 
+To demo the site without registering, use the following details:
+- email: hello@email.com
+- password: pass
+
 ### Homepage
 
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186483/classroom/screengrabs/Screenshot_2021-11-01_at_09.24.52_gxto9d.png" alt="homepage" width="600">
