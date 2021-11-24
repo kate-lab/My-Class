@@ -25,7 +25,7 @@ Our project brief was as follows:
 We want a full stack application with a React front-end and a Django back-end
 We want to see a fully functional RESTful api with all CRUD routes (GET, POST, PUT, DELETE)
 We want you to use at least one OneToMany & one ManyToMany relationship (more lenient on this for solo projects)
-Custom authentication (register/login) is a nice to have for solo projects, and a requirement for group projects
+Custom authentication (register/login) is a nice to have for solo projects, and a requirement for group projects.
 
 My aim was to try and develop an app which had the full gamut of requirements - so I used the “group project” requirements as the goal for my MVP, despite working solo.
 
@@ -134,7 +134,7 @@ This page was the core profile page, which would be linked to via the navbar for
 
 ### Individual Lesson Show Wireframe
 
-This individual lesson page could also be shared by teachers with their students, and if current logged in user is the owner of the lesson, they can also see the edit menu on the top right hand side. The top left hand button goes back to the lesson owner's class for easy use by students.
+This individual lesson page could also be shared by teachers with their students, and if the current logged in user is the owner of the lesson, they can also see the edit menu on the top right hand side. The top left hand button goes back to the lesson owner's class for easy use by students.
 
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186934/classroom/screengrabs/Group_3_zwnz7w.png" alt="individual lesson wireframe" width="600">
 
@@ -149,11 +149,7 @@ I also developed some additional pages during the project that I didn't develop 
 
 I am really pleased that the final product is very much like my plans in Figma, with some added detail like the grid pattern, built using a CSS gradient. It looks fun and engaging and feels like 90s stationary - taking me back to being a school kid!
 
-Play with the app on the demo hosted on [Heroku](https://my-class-content-creator.herokuapp.com/).
-
-To demo the site without registering, use the following details:
-- email: hello@email.com
-- password: pass
+Play with the app on the demo hosted on [Heroku](https://class-content-creator.herokuapp.com/).
 
 ### Homepage
 
@@ -195,6 +191,7 @@ I planned well so I had lots of time to make all the features I wanted to, as we
 
 ## Bugs and Future Features
 
-- On “edit lesson” the lesson being edited is loading as placeholder text, but this is not technically editable and so doesn’t quite work. So I would like to change this so that it is loaded in as the actual value of the lesson form, with any changes just editing each input individually.
-- I want to add a creatable React Select on the “add lesson” form, so that the user can add new topics if they don’t see the topic they need on the list. This will involve posting to the topics API.
-- Eventually I would like to add a learner user database, who would be able to comment or add files to their linked (as a many to one relationship) teacher’s lessons to show the work they had created. They could also have a library of their own “comments” as a homework folder.
+On “edit lesson” the lesson being edited is loading as placeholder text, but this is not technically editable and so doesn’t quite work. So I would like to change this so that it is loaded in as the actual value of the lesson form, with any changes just editing each input individually.
+I want to add a creatable React Select on the “add lesson” form, so that the user can add new topics if they don’t see the topic they need on the list. This will involve posting to the topics API.
+Eventually I would like to add a learner user database, who would be able to comment or add files to their linked (as a many to one relationship) teacher’s lessons to show the work they had created. They could also have a library of their own “comments” as a homework folder.
+
