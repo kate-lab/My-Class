@@ -150,7 +150,23 @@ I also developed some additional pages during the project that I didn't develop 
 
 ## Finished Product
 
-I am really pleased that the final product is very much like my plans in Figma, with some added detail like the grid pattern, built using a CSS gradient. It looks fun and engaging and feels like 90s stationary - taking me back to being a school kid!
+I am really pleased that the final product is very much like my plans in Figma, with some added detail like the grid pattern, built using a CSS gradient:
+
+```
+.grid{
+  display: flex;
+  background-size: 30px 30px;
+  min-height: 100vh;
+  background-image:
+    linear-gradient(to right, rgba(210, 210, 210, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(210, 210, 210, 0.6) 1px, transparent 1px);
+}
+```
+
+
+It looks fun and engaging and feels like 90s stationary - taking me back to being a school kid!
+
+
 
 Play with the app on the demo hosted on [Heroku](https://class-content-creator.herokuapp.com/).
 
@@ -280,7 +296,7 @@ I sometimes found working on my own difficult as it was just me and Google to tr
 
 ## Project Wins
 
-Generally I am really happy with the final product that I built within a limited time. I am really passionate about the subject matter so I could really build something that a teacher would find useful and that would engage students with playful and exciting design. 
+Generally I am really happy with the final product that I built within a limited time. I am really passionate about the subject matter so I could really build something that a teacher would find useful and that would engage students with playful and exciting design.
 
 I planned well so I had lots of time to make all the features I wanted to, as well as adding some new components, like the teachers index page and all lessons inspiration page. These were fairly quick wins but really made a difference to the richness of the site! I had that information within my databases so why not show it to the user!
 
