@@ -20,12 +20,12 @@ This app was built as my final project during the General Assembly Software Engi
 
 ## Brief
 
-Our project brief was as follows:
+My project brief was as follows:
 
-We want a full stack application with a React front-end and a Django back-end
-We want to see a fully functional RESTful api with all CRUD routes (GET, POST, PUT, DELETE)
-We want you to use at least one OneToMany & one ManyToMany relationship (more lenient on this for solo projects)
-Custom authentication (register/login) is a nice to have for solo projects, and a requirement for group projects.
+- We want a full stack application with a React front-end and a Django back-end.
+- We want to see a fully functional RESTful api with all CRUD routes (GET, POST, PUT, DELETE).
+- We want you to use at least one OneToMany & one ManyToMany relationship (more lenient on this for solo projects).
+- Custom authentication (register/login) is a nice to have for solo projects, and a requirement for group projects.
 
 My aim was to try and develop an app which had the full gamut of requirements - so I used the “group project” requirements as the goal for my MVP, despite working solo.
 
@@ -67,6 +67,17 @@ I started my project by building out my backend database and then added my front
 This was my first Django project using Python as the main language to interact with a PostgreSQL database, so it was a steep learning curve to build my back end in this case, but I really enjoyed the precision of Django and the clarity of error messaging. I could see where things were going wrong and rectify mistakes very precisely. I used Tableplus to check my database, and built in populated serializers to create the relationships between my collections within the database.
 
 As I went along I realised that I would need various versions of the User profile for different scenarios as, for example, the lesson's owner was being added as a user, but then that user profile was being populated with lessons, creating an infinite relationship loop. I fixed this by creating a non-populated User serializer to add an owner to the lessons, leaving the populated user profile just for the class page, and a non populated lesson, to ensure the classpage didn't cause an infinite loop the other way around.
+
+
+User profile to be used for individual class page, shows the lessons but not personal info. This is used to show the owner's lessons, but avoids a loop as it refers to lessons in a non populated lesson serializer:
+
+```
+class UserSerializer(serializers.ModelSerializer):
+        
+    class Meta:
+        model = User
+        fields = ('id', 'display_name', 'profile_image', 'email', 'lessons')
+```
 
 I had three main collections within my database with various different connections between them:
 
@@ -110,21 +121,15 @@ I designed the following wireframes to build the look of my site, but also ended
 
 ### Homepage Wireframe
 
-As the content on this site is generated entirely by users, the homepage needed to show users that they would need to login or register to access the CRUD operations. There are read-only elements of the site, but I wanted the messaging to be to login as a teacher user!
-
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186934/classroom/screengrabs/Group_4_1_unaboc.png" alt="homepage wireframe" width="600">
 
 ### Register and Login Form Wireframes
-
-These forms create post requests to the User database, and ensure the user provides the information required as a Django basic user, but also for the additional features needed to create a user profile/class, like profile picture and display name (which shows as the name for their classroom). 
 
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186934/classroom/screengrabs/Group_5_vapa2w.png" alt="register wireframe" width="600">
 
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186934/classroom/screengrabs/Group_6_mkxai3.png" alt="login wireframe" width="600">
 
 ### My Class Wireframe
-
-This page was the core profile page, which would be linked to via the navbar for each individual user, but also could be shared by user id/pk with students. The navbar itself is only visible to logged in users, so that the Class and the Lesson page can be shared with students without any other visual fuss on to distract a learner.
 
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186934/classroom/screengrabs/Group_2_1_kgwr7t.png" alt="my class wireframe" width="600">
 
@@ -133,8 +138,6 @@ This page was the core profile page, which would be linked to via the navbar for
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186934/classroom/screengrabs/Group_7_jd18fo.png" alt="lesson add/edit form wireframe" width="600">
 
 ### Individual Lesson Show Wireframe
-
-This individual lesson page could also be shared by teachers with their students, and if the current logged in user is the owner of the lesson, they can also see the edit menu on the top right hand side. The top left hand button goes back to the lesson owner's class for easy use by students.
 
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186934/classroom/screengrabs/Group_3_zwnz7w.png" alt="individual lesson wireframe" width="600">
 
@@ -153,17 +156,109 @@ Play with the app on the demo hosted on [Heroku](https://class-content-creator.h
 
 ### Homepage
 
+As the content on this site is generated entirely by users, the homepage needed to show users that they would need to login or register to access the CRUD operations. There are read-only elements of the site, but I wanted the messaging to be to login as a teacher user!
+
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186483/classroom/screengrabs/Screenshot_2021-11-01_at_09.24.52_gxto9d.png" alt="homepage" width="600">
 
+### Register/Login Forms
+
+These forms create post requests to the User database, and ensure the user provides the information required as a Django basic user, but also for the additional features needed to create a user profile/class, like profile picture and display name (which shows as the name for their classroom). This was a good opportunity to practice setting data to state and then making an axios request to add the information to the user database:
+
+```
+  const [formData, setFormData] = useState({
+    username: '',
+    display_name: '',
+    email: '',
+    profile_image: '',
+    password: '',
+    password_confirmation: '',
+  })
+```
+
 ### My Class
+
+This page was the core profile page, which would be linked to via the navbar for each individual user, but also could be shared by user id/pk with students, using params in the url. The navbar itself is only visible to logged in users, so that the Class and the Lesson page can be shared with students without any other visual fuss on to distract a learner. To check if a user is logged in, I used a userIsAuthenticated function to check if the JWT had been generated and stored in local history when the user logged in.
+
+```
+export const getPayload = () => {
+  //extract from local storage
+  const token = getTokenFromLocalStorage()
+  if (!token) return
+  //split the token into three parts
+  const splitToken = token.split('.')
+  if (splitToken.length < 3) return
+  
+  //get the payload from the first index
+  return JSON.parse(atob(splitToken[1]))
+}
+
+export const userIsAuthenticated = ()=>{
+  const payload = getPayload()
+  if (!payload) return
+  const currentTime = Math.round(Date.now() / 1000)
+  return currentTime < payload.exp
+}
+```
+
+Lessons were filtered through use of a React Select to map through chosen topics:
+
+```
+  const handleMultiSelected = (selected) => {
+    const lessons = user.lessons
+    // console.log(lessons)
+    // console.log('selected ->', selected)
+    const values = selected ? selected.map(topic => topic.value) : []
+    const filtered = lessons.filter(lesson => {
+
+      return lesson.topics.some(topic => {
+        // console.log(topic.topic_name)
+        return values.includes(topic.topic_name)
+
+      })
+    })
+    console.log('filtered ->', filtered)
+    values.length > 0 ? setFilteredLessons(filtered) : setFilteredLessons([])
+  }
+```
 
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186483/classroom/screengrabs/Screenshot_2021-11-01_at_09.26.01_bzrfgf.png" alt="my class" width="600">
 
 ### Lesson Add/Edit Form
 
+The lesson add/edit form was one of the largest pieces of work within this project, using an image upload function, various text fields and a react select to choose the topics covered in the lesson. The topics were mapped in via a get request to the topics database and then pushed into the topics array in the form's state:
+
+```
+  const [ topics , setTopics ] = useState([])
+
+  useEffect(() => {
+
+    if (!userIsAuthenticated()) return history.push('/login')
+
+    const getTopics = async () => {
+      try {
+        const { data } = await axios('/api/topics/')
+        setTopics(data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getTopics()
+  }, [history])
+
+  const topicOptions = topics.map(topic => (
+    { value: topic.topic_name, label: topic.topic_name, id: topic.id }
+  ))
+  
+  const handleMultiSelected = (selected, name) => {
+    const selectedTopics = selected ? selected.map(topic => topic.id) : []
+    setFormData({ ...formData, [name]: selectedTopics })
+  }
+```
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186483/classroom/screengrabs/Screenshot_2021-11-01_at_09.27.05_ybtnqm.png" alt="lesson add/edit form" width="600">
 
 ### Individual Lesson Show
+
+This individual lesson page could also be shared by teachers with their students, and if the current logged in user is the owner of the lesson, they can also see the edit menu on the top right hand side. The top left hand button goes back to the lesson owner's class for easy use by students.
 
 <img src="https://res.cloudinary.com/dysirhng8/image/upload/v1637186484/classroom/screengrabs/Screenshot_2021-11-01_at_09.28.57_s4gcp0.png" alt="individual lesson" width="600">
 
