@@ -168,7 +168,7 @@ It looks fun and engaging and feels like 90s stationary - taking me back to bein
 
 
 
-Play with the app on the demo hosted on [Heroku](https://class-content-creator.herokuapp.com/).
+Play with the app on the demo hosted on [Heroku](http://my-class-content-creator.herokuapp.com/).
 
 ### Homepage
 
